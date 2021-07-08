@@ -1,0 +1,1957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Bitcoin &#8212; IntegrationHub V2 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ethereum" href="ethereum.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ethereum.html" title="Ethereum"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting-started.html" title="Getting Started"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Bitcoin</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="bitcoin">
+<h1>Bitcoin<a class="headerlink" href="#bitcoin" title="Permalink to this headline">¶</a></h1>
+<p>All RPC included are based on bitcoin-cli.</p>
+<p>Request URL : <a class="reference external" href="http://integrationhub.okwave.global/api/v2/">http://integrationhub.okwave.global/api/v2/</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to enter received token in headers using key ‘Authorization’.</p>
+</div>
+<hr class="docutils" />
+<section id="getblockcount">
+<h2>getblockcount<a class="headerlink" href="#getblockcount" title="Permalink to this headline">¶</a></h2>
+<p>Returns the number of blocks in the longest blockchain.</p>
+<section id="headers">
+<h3>Headers<a class="headerlink" href="#headers" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Example JSON body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblockcount&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="response">
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h3>
+<p>Returns the current block number:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">653506</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getbestblockhash">
+<h2>getbestblockhash<a class="headerlink" href="#getbestblockhash" title="Permalink to this headline">¶</a></h2>
+<p>Returns the hash of the best (tip) block in the longest blockchain.</p>
+<section id="id1">
+<h3>Headers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getbestblockhash&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>Response<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000192e1fe636f862d3416bbc13a3a2a084fd1e9775aa903&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblock">
+<h2>getblock<a class="headerlink" href="#getblock" title="Permalink to this headline">¶</a></h2>
+<p>Returns a string that is serialized, hex-encoded data for block ‘hash’.</p>
+<section id="id5">
+<h3>Headers<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blockhash</span>   <span class="nb">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="n">block</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;blockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000293c83a20b0e537c52fb7903c3b5d6e358400d5574ea0ec33ba&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Example<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblock&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;blockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000293c83a20b0e537c52fb7903c3b5d6e358400d5574ea0ec33ba&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>Response<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="mi">654601</span><span class="p">,</span>
+    <span class="s2">&quot;strippedsize&quot;</span><span class="p">:</span> <span class="mi">216</span><span class="p">,</span>
+    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">216</span><span class="p">,</span>
+    <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">864</span><span class="p">,</span>
+    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;versionHex&quot;</span><span class="p">:</span> <span class="s2">&quot;00000001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;merkleroot&quot;</span><span class="p">:</span> <span class="s2">&quot;fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1232346882</span><span class="p">,</span>
+    <span class="s2">&quot;mediantime&quot;</span><span class="p">:</span> <span class="mi">1232344831</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">2595206198</span><span class="p">,</span>
+    <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="s2">&quot;1d00ffff&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;difficulty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;chainwork&quot;</span><span class="p">:</span> <span class="s2">&quot;000000000000000000000000000000000000000000000000000003e903e903e9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nTx&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;previousblockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nextblockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockchaininfo">
+<h2>getblockchaininfo<a class="headerlink" href="#getblockchaininfo" title="Permalink to this headline">¶</a></h2>
+<p>Returns an object containing various state info regarding blockchain processing.</p>
+<section id="id9">
+<h3>Headers<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3>Parameters<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id11">
+<h3>Example<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblockchaininfo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3>Response<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;chain&quot;</span><span class="p">:</span> <span class="s2">&quot;main&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blocks&quot;</span><span class="p">:</span> <span class="mi">653506</span><span class="p">,</span>
+    <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="mi">653506</span><span class="p">,</span>
+    <span class="s2">&quot;bestblockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000000000192e1fe636f862d3416bbc13a3a2a084fd1e9775aa903&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;difficulty&quot;</span><span class="p">:</span> <span class="mf">19997335994446.11</span><span class="p">,</span>
+    <span class="s2">&quot;mediantime&quot;</span><span class="p">:</span> <span class="mi">1603158828</span><span class="p">,</span>
+    <span class="s2">&quot;verificationprogress&quot;</span><span class="p">:</span> <span class="mf">0.9999927472184578</span><span class="p">,</span>
+    <span class="s2">&quot;initialblockdownload&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;chainwork&quot;</span><span class="p">:</span> <span class="s2">&quot;000000000000000000000000000000000000000014e050ddea8491609bc1e1d2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;size_on_disk&quot;</span><span class="p">:</span> <span class="mi">347139991490</span><span class="p">,</span>
+    <span class="s2">&quot;pruned&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;softforks&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;bip34&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buried&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">227931</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;bip66&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buried&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">363725</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;bip65&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buried&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">388381</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;csv&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buried&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">419328</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;segwit&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;buried&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">481824</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;warnings&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockhash">
+<h2>getblockhash<a class="headerlink" href="#getblockhash" title="Permalink to this headline">¶</a></h2>
+<p>Returns hash of block in best-block-chain at height provided.</p>
+<section id="id13">
+<h3>Headers<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>Parameters<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">height</span>  <span class="n">value</span> <span class="n">height</span> <span class="n">block</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1457</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h3>Example<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblockhash&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1457</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h3>Response<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000c1b653c16878482f16d9d25f59214468f79ceceb6b0b58020d83aab5&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockheader">
+<h2>getblockheader<a class="headerlink" href="#getblockheader" title="Permalink to this headline">¶</a></h2>
+<p>bitcoin rpc for get block header.</p>
+<section id="id17">
+<h3>Headers<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id18">
+<h3>Parameters<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blockhash</span>   <span class="n">blockhash</span> <span class="n">of</span> <span class="n">the</span> <span class="n">block</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h3>Example<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getbestblockhash&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h3>Response<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="mi">654601</span><span class="p">,</span>
+    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;versionHex&quot;</span><span class="p">:</span> <span class="s2">&quot;00000001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;merkleroot&quot;</span><span class="p">:</span> <span class="s2">&quot;fe28050b93faea61fa88c4c630f0e1f0a1c24d0082dd0e10d369e13212128f33&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1232346882</span><span class="p">,</span>
+    <span class="s2">&quot;mediantime&quot;</span><span class="p">:</span> <span class="mi">1232344831</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">2595206198</span><span class="p">,</span>
+    <span class="s2">&quot;bits&quot;</span><span class="p">:</span> <span class="s2">&quot;1d00ffff&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;difficulty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;chainwork&quot;</span><span class="p">:</span> <span class="s2">&quot;000000000000000000000000000000000000000000000000000003e903e903e9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nTx&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;previousblockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000008e647742775a230787d66fdf92c46a48c896bfbc85cdc8acc67e87d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nextblockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000a2887344f8db859e372e7e4bc26b23b9de340f725afbf2edb265b4c6&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockstats">
+<h2>getblockstats<a class="headerlink" href="#getblockstats" title="Permalink to this headline">¶</a></h2>
+<p>Compute per block statistics for a given window. All amounts are in satoshis.</p>
+<p>It won’t work for some heights with pruning.</p>
+<p>It won’t work without -txindex for utxo_size_inc, <a href="#id21"><span class="problematic" id="id22">*</span></a>fee or <a href="#id23"><span class="problematic" id="id24">*</span></a>feerate stats.</p>
+<section id="id25">
+<h3>Headers<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h3>Parameters<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hash_or_height</span>  <span class="nb">set</span> <span class="n">height</span> <span class="ow">or</span> <span class="nb">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="n">block</span>
+                <span class="p">{</span>
+                <span class="s2">&quot;hash_or_height&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id27">
+<h3>Example<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getbestblockhash&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;hash_or_height&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span>
+        <span class="p">}</span> <span class="p">,</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id28">
+<h3>Response<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<p>Returns the block stats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;avgfee&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;avgfeerate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;avgtxsize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;blockhash&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000099c744455f58e6c6e98b671e1bf7f37346bfd4cf5d0274ad8ee660cb&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;feerate_percentiles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+    <span class="s2">&quot;ins&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;maxfee&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;maxfeerate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;maxtxsize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;medianfee&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;mediantime&quot;</span><span class="p">:</span> <span class="mi">1238985062</span><span class="p">,</span>
+    <span class="s2">&quot;mediantxsize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;minfee&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;minfeerate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;mintxsize&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;outs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;subsidy&quot;</span><span class="p">:</span> <span class="mi">5000000000</span><span class="p">,</span>
+    <span class="s2">&quot;swtotal_size&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;swtotal_weight&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;swtxs&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="mi">1238988213</span><span class="p">,</span>
+    <span class="s2">&quot;total_out&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;total_size&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;total_weight&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;totalfee&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;txs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;utxo_increase&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;utxo_size_inc&quot;</span><span class="p">:</span> <span class="mi">117</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>}</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getdifficulty">
+<h2>getdifficulty<a class="headerlink" href="#getdifficulty" title="Permalink to this headline">¶</a></h2>
+<p>Returns the proof-of-work difficulty as a multiple of the minimum difficulty.</p>
+<section id="id29">
+<h3>Headers<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id30">
+<h3>Parameters<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id31">
+<h3>Example<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>Example body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getdifficulty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id32">
+<h3>Response<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p>Returns the current difficulty:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mf">19997335994446.11</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getmemoryinfo">
+<h2>getmemoryinfo<a class="headerlink" href="#getmemoryinfo" title="Permalink to this headline">¶</a></h2>
+<p>Returns an object containing information about memory usage.</p>
+<section id="id33">
+<h3>Headers<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id34">
+<h3>Parameters<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id35">
+<h3>Example<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getmemoryinfo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id36">
+<h3>Response<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+ <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+     <span class="s2">&quot;locked&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s2">&quot;used&quot;</span><span class="p">:</span> <span class="mi">117056</span><span class="p">,</span>
+         <span class="s2">&quot;free&quot;</span><span class="p">:</span> <span class="mi">145088</span><span class="p">,</span>
+         <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mi">262144</span><span class="p">,</span>
+         <span class="s2">&quot;locked&quot;</span><span class="p">:</span> <span class="mi">262144</span><span class="p">,</span>
+         <span class="s2">&quot;chunks_used&quot;</span><span class="p">:</span> <span class="mi">3656</span><span class="p">,</span>
+         <span class="s2">&quot;chunks_free&quot;</span><span class="p">:</span> <span class="mi">2</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getrpcinfo">
+<h2>getrpcinfo<a class="headerlink" href="#getrpcinfo" title="Permalink to this headline">¶</a></h2>
+<p>Returns details of the RPC server.</p>
+<section id="id37">
+<h3>Headers<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id38">
+<h3>Parameters<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id39">
+<h3>Example<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getrpcinfo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id40">
+<h3>Response<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;active_commands&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getrpcinfo&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;duration&quot;</span><span class="p">:</span> <span class="mi">1037</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;logpath&quot;</span><span class="p">:</span> <span class="s2">&quot;/var/lib/bitcoind/debug.log&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="help">
+<h2>help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<p>List all commands, or get help for a specified command.</p>
+<section id="id41">
+<h3>Headers<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id42">
+<h3>Parameters<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id43">
+<h3>Example<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id44">
+<h3>Response<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;== Blockchain ==</span><span class="se">\n</span><span class="s2">getbestblockhash</span><span class="se">\n</span><span class="s2">getblock </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> ( verbosity )</span><span class="se">\n</span><span class="s2">getblockchaininfo</span><span class="se">\n</span><span class="s2">getblockcount</span><span class="se">\n</span><span class="s2">getblockfilter </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">filtertype</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getblockhash height</span><span class="se">\n</span><span class="s2">getblockheader </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> ( verbose )</span><span class="se">\n</span><span class="s2">getblockstats hash_or_height ( stats )</span><span class="se">\n</span><span class="s2">getchaintips</span><span class="se">\n</span><span class="s2">getchaintxstats ( nblocks </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getdifficulty</span><span class="se">\n</span><span class="s2">getmempoolancestors </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( verbose )</span><span class="se">\n</span><span class="s2">getmempooldescendants </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( verbose )</span><span class="se">\n</span><span class="s2">getmempoolentry </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;\n</span><span class="s2">getmempoolinfo</span><span class="se">\n</span><span class="s2">getrawmempool ( verbose )</span><span class="se">\n</span><span class="s2">gettxout </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> n ( include_mempool )</span><span class="se">\n</span><span class="s2">gettxoutproof [</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">,...] ( </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">gettxoutsetinfo</span><span class="se">\n</span><span class="s2">preciousblock </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;\n</span><span class="s2">pruneblockchain height</span><span class="se">\n</span><span class="s2">savemempool</span><span class="se">\n</span><span class="s2">scantxoutset </span><span class="se">\&quot;</span><span class="s2">action</span><span class="se">\&quot;</span><span class="s2"> [scanobjects,...]</span><span class="se">\n</span><span class="s2">verifychain ( checklevel nblocks )</span><span class="se">\n</span><span class="s2">verifytxoutproof </span><span class="se">\&quot;</span><span class="s2">proof</span><span class="se">\&quot;\n\n</span><span class="s2">== Control ==</span><span class="se">\n</span><span class="s2">getmemoryinfo ( </span><span class="se">\&quot;</span><span class="s2">mode</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getrpcinfo</span><span class="se">\n</span><span class="s2">help ( </span><span class="se">\&quot;</span><span class="s2">command</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">logging ( [</span><span class="se">\&quot;</span><span class="s2">include_category</span><span class="se">\&quot;</span><span class="s2">,...] [</span><span class="se">\&quot;</span><span class="s2">exclude_category</span><span class="se">\&quot;</span><span class="s2">,...] )</span><span class="se">\n</span><span class="s2">stop</span><span class="se">\n</span><span class="s2">uptime</span><span class="se">\n\n</span><span class="s2">== Generating ==</span><span class="se">\n</span><span class="s2">generatetoaddress nblocks </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> ( maxtries )</span><span class="se">\n\n</span><span class="s2">== Mining ==</span><span class="se">\n</span><span class="s2">getblocktemplate ( </span><span class="se">\&quot;</span><span class="s2">template_request</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getmininginfo</span><span class="se">\n</span><span class="s2">getnetworkhashps ( nblocks height )</span><span class="se">\n</span><span class="s2">prioritisetransaction </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( dummy ) fee_delta</span><span class="se">\n</span><span class="s2">submitblock </span><span class="se">\&quot;</span><span class="s2">hexdata</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">dummy</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">submitheader </span><span class="se">\&quot;</span><span class="s2">hexdata</span><span class="se">\&quot;\n\n</span><span class="s2">== Network ==</span><span class="se">\n</span><span class="s2">addnode </span><span class="se">\&quot;</span><span class="s2">node</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">command</span><span class="se">\&quot;\n</span><span class="s2">clearbanned</span><span class="se">\n</span><span class="s2">disconnectnode ( </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> nodeid )</span><span class="se">\n</span><span class="s2">getaddednodeinfo ( </span><span class="se">\&quot;</span><span class="s2">node</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getconnectioncount</span><span class="se">\n</span><span class="s2">getnettotals</span><span class="se">\n</span><span class="s2">getnetworkinfo</span><span class="se">\n</span><span class="s2">getnodeaddresses ( count )</span><span class="se">\n</span><span class="s2">getpeerinfo</span><span class="se">\n</span><span class="s2">listbanned</span><span class="se">\n</span><span class="s2">ping</span><span class="se">\n</span><span class="s2">setban </span><span class="se">\&quot;</span><span class="s2">subnet</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">command</span><span class="se">\&quot;</span><span class="s2"> ( bantime absolute )</span><span class="se">\n</span><span class="s2">setnetworkactive state</span><span class="se">\n\n</span><span class="s2">== Rawtransactions ==</span><span class="se">\n</span><span class="s2">analyzepsbt </span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;\n</span><span class="s2">combinepsbt [</span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;</span><span class="s2">,...]</span><span class="se">\n</span><span class="s2">combinerawtransaction [</span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2">,...]</span><span class="se">\n</span><span class="s2">converttopsbt </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> ( permitsigdata iswitness )</span><span class="se">\n</span><span class="s2">createpsbt [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n,</span><span class="se">\&quot;</span><span class="s2">sequence</span><span class="se">\&quot;</span><span class="s2">:n},...] [{</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">:amount},{</span><span class="se">\&quot;</span><span class="s2">data</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">},...] ( locktime replaceable )</span><span class="se">\n</span><span class="s2">createrawtransaction [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n,</span><span class="se">\&quot;</span><span class="s2">sequence</span><span class="se">\&quot;</span><span class="s2">:n},...] [{</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">:amount},{</span><span class="se">\&quot;</span><span class="s2">data</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">},...] ( locktime replaceable )</span><span class="se">\n</span><span class="s2">decodepsbt </span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;\n</span><span class="s2">decoderawtransaction </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> ( iswitness )</span><span class="se">\n</span><span class="s2">decodescript </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;\n</span><span class="s2">finalizepsbt </span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;</span><span class="s2"> ( extract )</span><span class="se">\n</span><span class="s2">fundrawtransaction </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> ( options iswitness )</span><span class="se">\n</span><span class="s2">getrawtransaction </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( verbose </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">joinpsbts [</span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;</span><span class="s2">,...]</span><span class="se">\n</span><span class="s2">sendrawtransaction </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> ( maxfeerate )</span><span class="se">\n</span><span class="s2">signrawtransactionwithkey </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> [</span><span class="se">\&quot;</span><span class="s2">privatekey</span><span class="se">\&quot;</span><span class="s2">,...] ( [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n,</span><span class="se">\&quot;</span><span class="s2">scriptPubKey</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">redeemScript</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">witnessScript</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">amount</span><span class="se">\&quot;</span><span class="s2">:amount},...] </span><span class="se">\&quot;</span><span class="s2">sighashtype</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">testmempoolaccept [</span><span class="se">\&quot;</span><span class="s2">rawtx</span><span class="se">\&quot;</span><span class="s2">,...] ( maxfeerate )</span><span class="se">\n</span><span class="s2">utxoupdatepsbt </span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;</span><span class="s2"> ( [</span><span class="se">\&quot;\&quot;</span><span class="s2">,{</span><span class="se">\&quot;</span><span class="s2">desc</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">str</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">range</span><span class="se">\&quot;</span><span class="s2">:n or [n,n]},...] )</span><span class="se">\n\n</span><span class="s2">== Util ==</span><span class="se">\n</span><span class="s2">createmultisig nrequired [</span><span class="se">\&quot;</span><span class="s2">key</span><span class="se">\&quot;</span><span class="s2">,...] ( </span><span class="se">\&quot;</span><span class="s2">address_type</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">deriveaddresses </span><span class="se">\&quot;</span><span class="s2">descriptor</span><span class="se">\&quot;</span><span class="s2"> ( range )</span><span class="se">\n</span><span class="s2">estimatesmartfee conf_target ( </span><span class="se">\&quot;</span><span class="s2">estimate_mode</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getdescriptorinfo </span><span class="se">\&quot;</span><span class="s2">descriptor</span><span class="se">\&quot;\n</span><span class="s2">signmessagewithprivkey </span><span class="se">\&quot;</span><span class="s2">privkey</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">message</span><span class="se">\&quot;\n</span><span class="s2">validateaddress </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;\n</span><span class="s2">verifymessage </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">signature</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">message</span><span class="se">\&quot;\n\n</span><span class="s2">== Wallet ==</span><span class="se">\n</span><span class="s2">abandontransaction </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;\n</span><span class="s2">abortrescan</span><span class="se">\n</span><span class="s2">addmultisigaddress nrequired [</span><span class="se">\&quot;</span><span class="s2">key</span><span class="se">\&quot;</span><span class="s2">,...] ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">address_type</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">backupwallet </span><span class="se">\&quot;</span><span class="s2">destination</span><span class="se">\&quot;\n</span><span class="s2">bumpfee </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( options )</span><span class="se">\n</span><span class="s2">createwallet </span><span class="se">\&quot;</span><span class="s2">wallet_name</span><span class="se">\&quot;</span><span class="s2"> ( disable_private_keys blank </span><span class="se">\&quot;</span><span class="s2">passphrase</span><span class="se">\&quot;</span><span class="s2"> avoid_reuse )</span><span class="se">\n</span><span class="s2">dumpprivkey </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;\n</span><span class="s2">dumpwallet </span><span class="se">\&quot;</span><span class="s2">filename</span><span class="se">\&quot;\n</span><span class="s2">encryptwallet </span><span class="se">\&quot;</span><span class="s2">passphrase</span><span class="se">\&quot;\n</span><span class="s2">getaddressesbylabel </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;\n</span><span class="s2">getaddressinfo </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;\n</span><span class="s2">getbalance ( </span><span class="se">\&quot;</span><span class="s2">dummy</span><span class="se">\&quot;</span><span class="s2"> minconf include_watchonly avoid_reuse )</span><span class="se">\n</span><span class="s2">getbalances</span><span class="se">\n</span><span class="s2">getnewaddress ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">address_type</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getrawchangeaddress ( </span><span class="se">\&quot;</span><span class="s2">address_type</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">getreceivedbyaddress </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> ( minconf )</span><span class="se">\n</span><span class="s2">getreceivedbylabel </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> ( minconf )</span><span class="se">\n</span><span class="s2">gettransaction </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2"> ( include_watchonly verbose )</span><span class="se">\n</span><span class="s2">getunconfirmedbalance</span><span class="se">\n</span><span class="s2">getwalletinfo</span><span class="se">\n</span><span class="s2">importaddress </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> rescan p2sh )</span><span class="se">\n</span><span class="s2">importmulti </span><span class="se">\&quot;</span><span class="s2">requests</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">options</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">importprivkey </span><span class="se">\&quot;</span><span class="s2">privkey</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> rescan )</span><span class="se">\n</span><span class="s2">importprunedfunds </span><span class="se">\&quot;</span><span class="s2">rawtransaction</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">txoutproof</span><span class="se">\&quot;\n</span><span class="s2">importpubkey </span><span class="se">\&quot;</span><span class="s2">pubkey</span><span class="se">\&quot;</span><span class="s2"> ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> rescan )</span><span class="se">\n</span><span class="s2">importwallet </span><span class="se">\&quot;</span><span class="s2">filename</span><span class="se">\&quot;\n</span><span class="s2">keypoolrefill ( newsize )</span><span class="se">\n</span><span class="s2">listaddressgroupings</span><span class="se">\n</span><span class="s2">listlabels ( </span><span class="se">\&quot;</span><span class="s2">purpose</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">listlockunspent</span><span class="se">\n</span><span class="s2">listreceivedbyaddress ( minconf include_empty include_watchonly </span><span class="se">\&quot;</span><span class="s2">address_filter</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">listreceivedbylabel ( minconf include_empty include_watchonly )</span><span class="se">\n</span><span class="s2">listsinceblock ( </span><span class="se">\&quot;</span><span class="s2">blockhash</span><span class="se">\&quot;</span><span class="s2"> target_confirmations include_watchonly include_removed )</span><span class="se">\n</span><span class="s2">listtransactions ( </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;</span><span class="s2"> count skip include_watchonly )</span><span class="se">\n</span><span class="s2">listunspent ( minconf maxconf [</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">,...] include_unsafe query_options )</span><span class="se">\n</span><span class="s2">listwalletdir</span><span class="se">\n</span><span class="s2">listwallets</span><span class="se">\n</span><span class="s2">loadwallet </span><span class="se">\&quot;</span><span class="s2">filename</span><span class="se">\&quot;\n</span><span class="s2">lockunspent unlock ( [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n},...] )</span><span class="se">\n</span><span class="s2">removeprunedfunds </span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;\n</span><span class="s2">rescanblockchain ( start_height stop_height )</span><span class="se">\n</span><span class="s2">sendmany </span><span class="se">\&quot;\&quot;</span><span class="s2"> {</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">:amount} ( minconf </span><span class="se">\&quot;</span><span class="s2">comment</span><span class="se">\&quot;</span><span class="s2"> [</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">,...] replaceable conf_target </span><span class="se">\&quot;</span><span class="s2">estimate_mode</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">sendtoaddress </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> amount ( </span><span class="se">\&quot;</span><span class="s2">comment</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">comment_to</span><span class="se">\&quot;</span><span class="s2"> subtractfeefromamount replaceable conf_target </span><span class="se">\&quot;</span><span class="s2">estimate_mode</span><span class="se">\&quot;</span><span class="s2"> avoid_reuse )</span><span class="se">\n</span><span class="s2">sethdseed ( newkeypool </span><span class="se">\&quot;</span><span class="s2">seed</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">setlabel </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">label</span><span class="se">\&quot;\n</span><span class="s2">settxfee amount</span><span class="se">\n</span><span class="s2">setwalletflag </span><span class="se">\&quot;</span><span class="s2">flag</span><span class="se">\&quot;</span><span class="s2"> ( value )</span><span class="se">\n</span><span class="s2">signmessage </span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">message</span><span class="se">\&quot;\n</span><span class="s2">signrawtransactionwithwallet </span><span class="se">\&quot;</span><span class="s2">hexstring</span><span class="se">\&quot;</span><span class="s2"> ( [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n,</span><span class="se">\&quot;</span><span class="s2">scriptPubKey</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">redeemScript</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">witnessScript</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">amount</span><span class="se">\&quot;</span><span class="s2">:amount},...] </span><span class="se">\&quot;</span><span class="s2">sighashtype</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">unloadwallet ( </span><span class="se">\&quot;</span><span class="s2">wallet_name</span><span class="se">\&quot;</span><span class="s2"> )</span><span class="se">\n</span><span class="s2">walletcreatefundedpsbt [{</span><span class="se">\&quot;</span><span class="s2">txid</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">vout</span><span class="se">\&quot;</span><span class="s2">:n,</span><span class="se">\&quot;</span><span class="s2">sequence</span><span class="se">\&quot;</span><span class="s2">:n},...] [{</span><span class="se">\&quot;</span><span class="s2">address</span><span class="se">\&quot;</span><span class="s2">:amount},{</span><span class="se">\&quot;</span><span class="s2">data</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">hex</span><span class="se">\&quot;</span><span class="s2">},...] ( locktime options bip32derivs )</span><span class="se">\n</span><span class="s2">walletlock</span><span class="se">\n</span><span class="s2">walletpassphrase </span><span class="se">\&quot;</span><span class="s2">passphrase</span><span class="se">\&quot;</span><span class="s2"> timeout</span><span class="se">\n</span><span class="s2">walletpassphrasechange </span><span class="se">\&quot;</span><span class="s2">oldpassphrase</span><span class="se">\&quot;</span><span class="s2"> </span><span class="se">\&quot;</span><span class="s2">newpassphrase</span><span class="se">\&quot;\n</span><span class="s2">walletprocesspsbt </span><span class="se">\&quot;</span><span class="s2">psbt</span><span class="se">\&quot;</span><span class="s2"> ( sign </span><span class="se">\&quot;</span><span class="s2">sighashtype</span><span class="se">\&quot;</span><span class="s2"> bip32derivs )</span><span class="se">\n\n</span><span class="s2">== Zmq ==</span><span class="se">\n</span><span class="s2">getzmqnotifications&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="uptime">
+<h2>uptime<a class="headerlink" href="#uptime" title="Permalink to this headline">¶</a></h2>
+<p>Returns the total uptime of the server.</p>
+<section id="id45">
+<h3>Headers<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id46">
+<h3>Parameters<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id47">
+<h3>Example<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;uptime&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id48">
+<h3>Response<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">423824</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getconnectioncount">
+<h2>getconnectioncount<a class="headerlink" href="#getconnectioncount" title="Permalink to this headline">¶</a></h2>
+<p>Returns the number of connections to other nodes.</p>
+<section id="id49">
+<h3>Headers<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id50">
+<h3>Parameters<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id51">
+<h3>Example<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getconnectioncount&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id52">
+<h3>Response<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getnettotals">
+<h2>getnettotals<a class="headerlink" href="#getnettotals" title="Permalink to this headline">¶</a></h2>
+<p>Returns information about network traffic, including bytes in, bytes out, and current time.</p>
+<section id="id53">
+<h3>Headers<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id54">
+<h3>Parameters<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id55">
+<h3>Example<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id56">
+<h3>Response<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;totalbytesrecv&quot;</span><span class="p">:</span> <span class="mi">3299246288</span><span class="p">,</span>
+    <span class="s2">&quot;totalbytessent&quot;</span><span class="p">:</span> <span class="mi">40608233565</span><span class="p">,</span>
+    <span class="s2">&quot;timemillis&quot;</span><span class="p">:</span> <span class="mi">1603167889678</span><span class="p">,</span>
+    <span class="s2">&quot;uploadtarget&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;timeframe&quot;</span><span class="p">:</span> <span class="mi">86400</span><span class="p">,</span>
+        <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;target_reached&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;serve_historical_blocks&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;bytes_left_in_cycle&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;time_left_in_cycle&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getnetworkinfo">
+<h2>getnetworkinfo<a class="headerlink" href="#getnetworkinfo" title="Permalink to this headline">¶</a></h2>
+<p>Returns an object containing various state info regarding P2P networking.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">getnetworkinfo</span>
+</pre></div>
+</div>
+<section id="id57">
+<h3>Headers<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id58">
+<h3>Parameters<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id59">
+<h3>Example<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/getnetworkinfo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id60">
+<h3>Response<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">190001</span><span class="p">,</span>
+    <span class="s2">&quot;subversion&quot;</span><span class="p">:</span> <span class="s2">&quot;/Satoshi:0.19.0.1/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;protocolversion&quot;</span><span class="p">:</span> <span class="mi">70015</span><span class="p">,</span>
+    <span class="s2">&quot;localservices&quot;</span><span class="p">:</span> <span class="s2">&quot;0000000000000409&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;localservicesnames&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;NETWORK&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;WITNESS&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NETWORK_LIMITED&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;localrelay&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;timeoffset&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;networkactive&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;networks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ipv4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;limited&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;reachable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;proxy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;proxy_randomize_credentials&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ipv6&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;limited&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;reachable&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;proxy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;proxy_randomize_credentials&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;onion&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;limited&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;reachable&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;proxy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;proxy_randomize_credentials&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;relayfee&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">,</span>
+    <span class="s2">&quot;incrementalfee&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">,</span>
+    <span class="s2">&quot;localaddresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;20.8.1.103&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8333</span><span class="p">,</span>
+            <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;warnings&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getpeerinfo">
+<h2>getpeerinfo<a class="headerlink" href="#getpeerinfo" title="Permalink to this headline">¶</a></h2>
+<p>Returns data about each connected network node as a json array of objects.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">getpeerinfo</span>
+</pre></div>
+</div>
+<section id="id61">
+<h3>Headers<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id62">
+<h3>Parameters<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id63">
+<h3>Example<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/getpeerinfo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id64">
+<h3>Response<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="s2">&quot;51.154.60.34:8333&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;addrlocal&quot;</span><span class="p">:</span> <span class="s2">&quot;13.250.189.186:10157&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;addrbind&quot;</span><span class="p">:</span> <span class="s2">&quot;20.8.1.33:51984&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="s2">&quot;000000000000040d&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;servicesnames&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;NETWORK&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;BLOOM&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;WITNESS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;NETWORK_LIMITED&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;relaytxes&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;lastsend&quot;</span><span class="p">:</span> <span class="mi">1603168028</span><span class="p">,</span>
+        <span class="s2">&quot;lastrecv&quot;</span><span class="p">:</span> <span class="mi">1603168031</span><span class="p">,</span>
+        <span class="s2">&quot;bytessent&quot;</span><span class="p">:</span> <span class="mi">124958917</span><span class="p">,</span>
+        <span class="s2">&quot;bytesrecv&quot;</span><span class="p">:</span> <span class="mi">458812896</span><span class="p">,</span>
+        <span class="s2">&quot;conntime&quot;</span><span class="p">:</span> <span class="mi">1602037402</span><span class="p">,</span>
+        <span class="s2">&quot;timeoffset&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">&quot;pingtime&quot;</span><span class="p">:</span> <span class="mf">0.234671</span><span class="p">,</span>
+        <span class="s2">&quot;minping&quot;</span><span class="p">:</span> <span class="mf">0.148192</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">70015</span><span class="p">,</span>
+        <span class="s2">&quot;subver&quot;</span><span class="p">:</span> <span class="s2">&quot;/Satoshi:0.18.0/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inbound&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;addnode&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;startingheight&quot;</span><span class="p">:</span> <span class="mi">651584</span><span class="p">,</span>
+        <span class="s2">&quot;banscore&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;synced_headers&quot;</span><span class="p">:</span> <span class="mi">653523</span><span class="p">,</span>
+        <span class="s2">&quot;synced_blocks&quot;</span><span class="p">:</span> <span class="mi">653523</span><span class="p">,</span>
+        <span class="s2">&quot;inflight&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;whitelisted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;minfeefilter&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">,</span>
+        <span class="s2">&quot;bytessent_per_msg&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="mi">236115</span><span class="p">,</span>
+            <span class="s2">&quot;feefilter&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="s2">&quot;getaddr&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;getblocktxn&quot;</span><span class="p">:</span> <span class="mi">725</span><span class="p">,</span>
+            <span class="s2">&quot;getdata&quot;</span><span class="p">:</span> <span class="mi">28047333</span><span class="p">,</span>
+            <span class="s2">&quot;getheaders&quot;</span><span class="p">:</span> <span class="mi">1053</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="mi">50456</span><span class="p">,</span>
+            <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="mi">91387979</span><span class="p">,</span>
+            <span class="s2">&quot;notfound&quot;</span><span class="p">:</span> <span class="mi">111767</span><span class="p">,</span>
+            <span class="s2">&quot;ping&quot;</span><span class="p">:</span> <span class="mi">301408</span><span class="p">,</span>
+            <span class="s2">&quot;pong&quot;</span><span class="p">:</span> <span class="mi">301376</span><span class="p">,</span>
+            <span class="s2">&quot;sendcmpct&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+            <span class="s2">&quot;sendheaders&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="mi">4520374</span><span class="p">,</span>
+            <span class="s2">&quot;verack&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">128</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;bytesrecv_per_msg&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="mi">209662</span><span class="p">,</span>
+            <span class="s2">&quot;blocktxn&quot;</span><span class="p">:</span> <span class="mi">816959</span><span class="p">,</span>
+            <span class="s2">&quot;cmpctblock&quot;</span><span class="p">:</span> <span class="mi">17018070</span><span class="p">,</span>
+            <span class="s2">&quot;feefilter&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="s2">&quot;getdata&quot;</span><span class="p">:</span> <span class="mi">431988</span><span class="p">,</span>
+            <span class="s2">&quot;getheaders&quot;</span><span class="p">:</span> <span class="mi">1053</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="mi">45280</span><span class="p">,</span>
+            <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="mi">70147264</span><span class="p">,</span>
+            <span class="s2">&quot;notfound&quot;</span><span class="p">:</span> <span class="mi">56327</span><span class="p">,</span>
+            <span class="s2">&quot;ping&quot;</span><span class="p">:</span> <span class="mi">301376</span><span class="p">,</span>
+            <span class="s2">&quot;pong&quot;</span><span class="p">:</span> <span class="mi">301408</span><span class="p">,</span>
+            <span class="s2">&quot;reject&quot;</span><span class="p">:</span> <span class="mi">15625</span><span class="p">,</span>
+            <span class="s2">&quot;sendcmpct&quot;</span><span class="p">:</span> <span class="mi">66</span><span class="p">,</span>
+            <span class="s2">&quot;sendheaders&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="mi">369467612</span><span class="p">,</span>
+            <span class="s2">&quot;verack&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">126</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="s2">&quot;93.88.75.75:8333&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;addrlocal&quot;</span><span class="p">:</span> <span class="s2">&quot;13.250.189.186:27409&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;addrbind&quot;</span><span class="p">:</span> <span class="s2">&quot;20.8.1.33:55542&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;services&quot;</span><span class="p">:</span> <span class="s2">&quot;000000000000040d&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;servicesnames&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;NETWORK&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;BLOOM&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;WITNESS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;NETWORK_LIMITED&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;relaytxes&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;lastsend&quot;</span><span class="p">:</span> <span class="mi">1603168030</span><span class="p">,</span>
+        <span class="s2">&quot;lastrecv&quot;</span><span class="p">:</span> <span class="mi">1603168030</span><span class="p">,</span>
+        <span class="s2">&quot;bytessent&quot;</span><span class="p">:</span> <span class="mi">123770795</span><span class="p">,</span>
+        <span class="s2">&quot;bytesrecv&quot;</span><span class="p">:</span> <span class="mi">596513702</span><span class="p">,</span>
+        <span class="s2">&quot;conntime&quot;</span><span class="p">:</span> <span class="mi">1602037407</span><span class="p">,</span>
+        <span class="s2">&quot;timeoffset&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;pingtime&quot;</span><span class="p">:</span> <span class="mf">0.181661</span><span class="p">,</span>
+        <span class="s2">&quot;minping&quot;</span><span class="p">:</span> <span class="mf">0.155844</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">70015</span><span class="p">,</span>
+        <span class="s2">&quot;subver&quot;</span><span class="p">:</span> <span class="s2">&quot;/Satoshi:0.16.0/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;inbound&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;addnode&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;startingheight&quot;</span><span class="p">:</span> <span class="mi">651582</span><span class="p">,</span>
+        <span class="s2">&quot;banscore&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;synced_headers&quot;</span><span class="p">:</span> <span class="mi">653523</span><span class="p">,</span>
+        <span class="s2">&quot;synced_blocks&quot;</span><span class="p">:</span> <span class="mi">653523</span><span class="p">,</span>
+        <span class="s2">&quot;inflight&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;whitelisted&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;permissions&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;minfeefilter&quot;</span><span class="p">:</span> <span class="mf">0.00001</span><span class="p">,</span>
+        <span class="s2">&quot;bytessent_per_msg&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="mi">239220</span><span class="p">,</span>
+            <span class="s2">&quot;block&quot;</span><span class="p">:</span> <span class="mi">1079340</span><span class="p">,</span>
+            <span class="s2">&quot;cmpctblock&quot;</span><span class="p">:</span> <span class="mi">192895</span><span class="p">,</span>
+            <span class="s2">&quot;feefilter&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="s2">&quot;getaddr&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;getblocktxn&quot;</span><span class="p">:</span> <span class="mi">4360</span><span class="p">,</span>
+            <span class="s2">&quot;getdata&quot;</span><span class="p">:</span> <span class="mi">34222609</span><span class="p">,</span>
+            <span class="s2">&quot;getheaders&quot;</span><span class="p">:</span> <span class="mi">1053</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="mi">153594</span><span class="p">,</span>
+            <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="mi">86655890</span><span class="p">,</span>
+            <span class="s2">&quot;notfound&quot;</span><span class="p">:</span> <span class="mi">35328</span><span class="p">,</span>
+            <span class="s2">&quot;ping&quot;</span><span class="p">:</span> <span class="mi">301408</span><span class="p">,</span>
+            <span class="s2">&quot;pong&quot;</span><span class="p">:</span> <span class="mi">301472</span><span class="p">,</span>
+            <span class="s2">&quot;sendcmpct&quot;</span><span class="p">:</span> <span class="mi">198</span><span class="p">,</span>
+            <span class="s2">&quot;sendheaders&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="mi">583196</span><span class="p">,</span>
+            <span class="s2">&quot;verack&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">128</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;bytesrecv_per_msg&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="mi">188662</span><span class="p">,</span>
+            <span class="s2">&quot;blocktxn&quot;</span><span class="p">:</span> <span class="mi">2360809</span><span class="p">,</span>
+            <span class="s2">&quot;cmpctblock&quot;</span><span class="p">:</span> <span class="mi">9289483</span><span class="p">,</span>
+            <span class="s2">&quot;feefilter&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+            <span class="s2">&quot;getdata&quot;</span><span class="p">:</span> <span class="mi">78575</span><span class="p">,</span>
+            <span class="s2">&quot;getheaders&quot;</span><span class="p">:</span> <span class="mi">1053</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="mi">115982</span><span class="p">,</span>
+            <span class="s2">&quot;inv&quot;</span><span class="p">:</span> <span class="mi">75128871</span><span class="p">,</span>
+            <span class="s2">&quot;notfound&quot;</span><span class="p">:</span> <span class="mi">64996</span><span class="p">,</span>
+            <span class="s2">&quot;ping&quot;</span><span class="p">:</span> <span class="mi">301472</span><span class="p">,</span>
+            <span class="s2">&quot;pong&quot;</span><span class="p">:</span> <span class="mi">301408</span><span class="p">,</span>
+            <span class="s2">&quot;reject&quot;</span><span class="p">:</span> <span class="mi">13508</span><span class="p">,</span>
+            <span class="s2">&quot;sendcmpct&quot;</span><span class="p">:</span> <span class="mi">132</span><span class="p">,</span>
+            <span class="s2">&quot;sendheaders&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="mi">508668545</span><span class="p">,</span>
+            <span class="s2">&quot;verack&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">126</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="listbanned">
+<h2>listbanned<a class="headerlink" href="#listbanned" title="Permalink to this headline">¶</a></h2>
+<p>List all banned IPs/Subnets.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">listbanned</span>
+</pre></div>
+</div>
+<section id="id65">
+<h3>Headers<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id66">
+<h3>Parameters<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id67">
+<h3>Example<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/listbanned&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id68">
+<h3>Response<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ping">
+<h2>ping<a class="headerlink" href="#ping" title="Permalink to this headline">¶</a></h2>
+<p>Requests that a ping be sent to all other nodes, to measure ping time.</p>
+<p>Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds.</p>
+<p>Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">ping</span>
+</pre></div>
+</div>
+<section id="id69">
+<h3>Headers<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id70">
+<h3>Parameters<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id71">
+<h3>Example<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/ping&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id72">
+<h3>Response<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
+<p>Returns ping status:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;Operation completed succcessfully&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getutxobyaddress">
+<h2>getutxobyaddress<a class="headerlink" href="#getutxobyaddress" title="Permalink to this headline">¶</a></h2>
+<p>bitcoin rpc for getutxobyaddress.</p>
+<p>Returns the best block hash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">getutxobyaddress</span>
+</pre></div>
+</div>
+<section id="id73">
+<h3>Headers<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id74">
+<h3>Parameters<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h3>
+<p>Parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>     <span class="n">address</span> <span class="k">for</span> <span class="n">account</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;n4rZHAPGXCu8bYchjzJhK3V7VVreascJxe&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id75">
+<h3>Example<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/getutxobyaddress&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;n3Z4FToecPHbjPyVDVsPgoFjcvYvq6SiFR&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id76">
+<h3>Response<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h3>
+<p>Returns the utxo address:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getbalancebyaddress">
+<h2>getbalancebyaddress<a class="headerlink" href="#getbalancebyaddress" title="Permalink to this headline">¶</a></h2>
+<p>Returns the total available balance in specific address.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">getbalancebyaddress</span>
+</pre></div>
+</div>
+<section id="id77">
+<h3>Headers<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id78">
+<h3>Parameters<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>     <span class="n">address</span> <span class="k">for</span> <span class="n">account</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HnRsoRMD4EhjryV6Pi91hj9gsSMbgXC3V&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id79">
+<h3>Example<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/getbalancebyaddress&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;n3Z4FToecPHbjPyVDVsPgoFjcvYvq6SiFR&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id80">
+<h3>Response<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;confirmed&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;unconfirmed&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;balance&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="gettransactionbytxid">
+<h2>gettransactionbytxid<a class="headerlink" href="#gettransactionbytxid" title="Permalink to this headline">¶</a></h2>
+<p>bitcoin rpc for gettransactionbytxid.</p>
+<p>Returns the best block hash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">gettransactionbytxid</span>
+</pre></div>
+</div>
+<section id="id81">
+<h3>Headers<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id82">
+<h3>Parameters<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h3>
+<p>Parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">txid</span>        <span class="n">transaction</span> <span class="nb">id</span> <span class="n">of</span> <span class="n">block</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;b70dff05c88115938588fb769a986b90574f7d0682b2209b9e26f947ca106220&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id83">
+<h3>Example<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/gettransactionbytxid&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;txid&quot;</span><span class="p">:</span><span class="s2">&quot;7a4284ed47e0d68eac8c0cf62a697a2f9411a53975b146444f8b17640cfca891&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id84">
+<h3>Response<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;5fa4ae6128d40b5fd0f097e9&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;b70dff05c88115938588fb769a986b90574f7d0682b2209b9e26f947ca106220&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;mainnet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;chain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blockHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;blockHash&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blockTime&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-11-06T02:01:00.816Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blockTimeNormalized&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-11-06T02:01:00.816Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;coinbase&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;locktime&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;inputCount&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;outputCount&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">483</span><span class="p">,</span>
+    <span class="s2">&quot;fee&quot;</span><span class="p">:</span> <span class="mi">241434</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1473130</span><span class="p">,</span>
+    <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="gettransactionbyaddress">
+<h2>gettransactionbyaddress<a class="headerlink" href="#gettransactionbyaddress" title="Permalink to this headline">¶</a></h2>
+<p>Get detailed information about in-wallet transaction &lt;txid&gt;.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">gettransactionbyaddress</span>
+</pre></div>
+</div>
+<section id="id85">
+<h3>Headers<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id86">
+<h3>Parameters<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h3>
+<p>Parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>     <span class="n">block</span> <span class="n">address</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HnRsoRMD4EhjryV6Pi91hj9gsSMbgXC3V&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id87">
+<h3>Example<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/gettransactionbyaddress&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;n4rZHAPGXCu8bYchjzJhK3V7VVreascJxe&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id88">
+<h3>Response<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;5fa4ae1e28d40b5fd0f02e4a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;mainnet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coinbase&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;mintIndex&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;spentTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;b70dff05c88115938588fb769a986b90574f7d0682b2209b9e26f947ca106220&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;971ec10a9334b299a6d2fcf5464efbf0c7b009c1c1ae4b931127e78933d5c349&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;spentHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HnRsoRMD4EhjryV6Pi91hj9gsSMbgXC3V&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;76a914b8197f03ac3f64b99d94ceacb7ef44dd7d08638688ac&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">95369</span><span class="p">,</span>
+        <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;sequenceNumber&quot;</span><span class="p">:</span> <span class="mi">4294967295</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;5fa4abc728d40b5fd0ec7073&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;mainnet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coinbase&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;mintIndex&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;spentTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;b70dff05c88115938588fb769a986b90574f7d0682b2209b9e26f947ca106220&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;f0cc380a3f0bc2a1d030833bb45f683ac08ed26b07e72a747afbc911a0ca6157&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;spentHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HnRsoRMD4EhjryV6Pi91hj9gsSMbgXC3V&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;76a914b8197f03ac3f64b99d94ceacb7ef44dd7d08638688ac&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">94893</span><span class="p">,</span>
+        <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;sequenceNumber&quot;</span><span class="p">:</span> <span class="mi">4294967295</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;5fa4aa9d28d40b5fd0eaf294&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;network&quot;</span><span class="p">:</span> <span class="s2">&quot;mainnet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coinbase&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;mintIndex&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="s2">&quot;spentTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;b70dff05c88115938588fb769a986b90574f7d0682b2209b9e26f947ca106220&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintTxid&quot;</span><span class="p">:</span> <span class="s2">&quot;5ca6008b02119848b3b44370c354108ddf34c0ce90f405cafd5d0e1fd903d35b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mintHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;spentHeight&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1HnRsoRMD4EhjryV6Pi91hj9gsSMbgXC3V&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;76a914b8197f03ac3f64b99d94ceacb7ef44dd7d08638688ac&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1524302</span><span class="p">,</span>
+        <span class="s2">&quot;confirmations&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;sequenceNumber&quot;</span><span class="p">:</span> <span class="mi">4294967295</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="createrawtransaction">
+<h2>createrawtransaction<a class="headerlink" href="#createrawtransaction" title="Permalink to this headline">¶</a></h2>
+<p>bitcoin rpc for createrawtransaction.</p>
+<p>Returns the best block hash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">createrawtransaction</span>
+</pre></div>
+</div>
+<section id="id89">
+<h3>Headers<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id90">
+<h3>Parameters<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JSON</span> <span class="n">Object</span>     <span class="n">txid</span> <span class="ow">and</span> <span class="n">txout</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;txin&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="p">{</span>
+                                <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;39105b99edf04adcdce79cf0c0496152bfe876596cfb59504317b62e89769566&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;vout&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                                <span class="p">}</span>
+                            <span class="p">],</span>
+                    <span class="s2">&quot;txout&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;2NFBd2GAgnPuyK6BPcDDgodiDchxKbDgWGh&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">0.0005</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id91">
+<h3>Example<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/createrawtransaction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;txin&quot;</span><span class="p">:[{</span><span class="s2">&quot;txid&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;vout&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}],</span><span class="s2">&quot;txout&quot;</span><span class="p">:[{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;amount&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}]})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id92">
+<h3>Response<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h3>
+<p>Returns the transaction hash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;0100000001e34ac1e2baac09c366fce1c2245536bda8f7db0f6685862aecf53ebd69f9a89c0000000000ffffffff02a0252600000000001976a914d90d36e98f62968d2bc9bbd68107564a156a9bcf88ac50622500000000001976a91407bdb518fa2e6089fd810235cf1100c9c13d1fd288ac00000000&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sendrawtransaction">
+<h2>sendrawtransaction<a class="headerlink" href="#sendrawtransaction" title="Permalink to this headline">¶</a></h2>
+<p>bitcoin rpc for sendrawtransaction.</p>
+<p>Returns the best block hash:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">btcmainnet</span><span class="o">/</span><span class="n">sendrawtransaction</span>
+</pre></div>
+</div>
+<section id="id93">
+<h3>Headers<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id94">
+<h3>Parameters<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hexstring</span>     <span class="n">hexstring</span> <span class="ow">and</span> <span class="n">privatekey</span>
+<span class="ow">and</span>           <span class="p">{</span>
+<span class="n">privatekey</span>      <span class="s2">&quot;hexstring&quot;</span><span class="p">:</span> <span class="s2">&quot;0200000001669576892eb617435059fb6c5976e8bf526149c0f09ce7dcdc4af0ed995b10390000000000ffffffff0150c300000000000017a914f0a454d03ca355e47b13fbdd497d258a0b365b0a8700000000&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;allowhighfees&quot;</span><span class="p">:</span> <span class="n">true</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id95">
+<h3>Example<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/btcmainnet/sendrawtransaction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;hexstring&quot;</span><span class="p">:</span><span class="s2">&quot;0200000001669576892eb617435059fb6c5976e8bf526149c0f09ce7dcdc4af0ed995b10390000000000ffffffff0150c300000000000017a914f0a454d03ca355e47b13fbdd497d258a0b365b0a8700000000&quot;</span><span class="p">,</span><span class="s2">&quot;privkeys&quot;</span><span class="p">:[</span><span class="s2">&quot;&quot;</span><span class="p">]})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id96">
+<h3>Response<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h3>
+<p>Returns the result for sendrawtransaction:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bitcoin</a><ul>
+<li><a class="reference internal" href="#getblockcount">getblockcount</a><ul>
+<li><a class="reference internal" href="#headers">Headers</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getbestblockhash">getbestblockhash</a><ul>
+<li><a class="reference internal" href="#id1">Headers</a></li>
+<li><a class="reference internal" href="#id2">Parameters</a></li>
+<li><a class="reference internal" href="#id3">Example</a></li>
+<li><a class="reference internal" href="#id4">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblock">getblock</a><ul>
+<li><a class="reference internal" href="#id5">Headers</a></li>
+<li><a class="reference internal" href="#id6">Parameters</a></li>
+<li><a class="reference internal" href="#id7">Example</a></li>
+<li><a class="reference internal" href="#id8">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockchaininfo">getblockchaininfo</a><ul>
+<li><a class="reference internal" href="#id9">Headers</a></li>
+<li><a class="reference internal" href="#id10">Parameters</a></li>
+<li><a class="reference internal" href="#id11">Example</a></li>
+<li><a class="reference internal" href="#id12">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockhash">getblockhash</a><ul>
+<li><a class="reference internal" href="#id13">Headers</a></li>
+<li><a class="reference internal" href="#id14">Parameters</a></li>
+<li><a class="reference internal" href="#id15">Example</a></li>
+<li><a class="reference internal" href="#id16">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockheader">getblockheader</a><ul>
+<li><a class="reference internal" href="#id17">Headers</a></li>
+<li><a class="reference internal" href="#id18">Parameters</a></li>
+<li><a class="reference internal" href="#id19">Example</a></li>
+<li><a class="reference internal" href="#id20">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockstats">getblockstats</a><ul>
+<li><a class="reference internal" href="#id25">Headers</a></li>
+<li><a class="reference internal" href="#id26">Parameters</a></li>
+<li><a class="reference internal" href="#id27">Example</a></li>
+<li><a class="reference internal" href="#id28">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getdifficulty">getdifficulty</a><ul>
+<li><a class="reference internal" href="#id29">Headers</a></li>
+<li><a class="reference internal" href="#id30">Parameters</a></li>
+<li><a class="reference internal" href="#id31">Example</a></li>
+<li><a class="reference internal" href="#id32">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getmemoryinfo">getmemoryinfo</a><ul>
+<li><a class="reference internal" href="#id33">Headers</a></li>
+<li><a class="reference internal" href="#id34">Parameters</a></li>
+<li><a class="reference internal" href="#id35">Example</a></li>
+<li><a class="reference internal" href="#id36">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getrpcinfo">getrpcinfo</a><ul>
+<li><a class="reference internal" href="#id37">Headers</a></li>
+<li><a class="reference internal" href="#id38">Parameters</a></li>
+<li><a class="reference internal" href="#id39">Example</a></li>
+<li><a class="reference internal" href="#id40">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#help">help</a><ul>
+<li><a class="reference internal" href="#id41">Headers</a></li>
+<li><a class="reference internal" href="#id42">Parameters</a></li>
+<li><a class="reference internal" href="#id43">Example</a></li>
+<li><a class="reference internal" href="#id44">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#uptime">uptime</a><ul>
+<li><a class="reference internal" href="#id45">Headers</a></li>
+<li><a class="reference internal" href="#id46">Parameters</a></li>
+<li><a class="reference internal" href="#id47">Example</a></li>
+<li><a class="reference internal" href="#id48">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getconnectioncount">getconnectioncount</a><ul>
+<li><a class="reference internal" href="#id49">Headers</a></li>
+<li><a class="reference internal" href="#id50">Parameters</a></li>
+<li><a class="reference internal" href="#id51">Example</a></li>
+<li><a class="reference internal" href="#id52">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getnettotals">getnettotals</a><ul>
+<li><a class="reference internal" href="#id53">Headers</a></li>
+<li><a class="reference internal" href="#id54">Parameters</a></li>
+<li><a class="reference internal" href="#id55">Example</a></li>
+<li><a class="reference internal" href="#id56">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getnetworkinfo">getnetworkinfo</a><ul>
+<li><a class="reference internal" href="#id57">Headers</a></li>
+<li><a class="reference internal" href="#id58">Parameters</a></li>
+<li><a class="reference internal" href="#id59">Example</a></li>
+<li><a class="reference internal" href="#id60">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getpeerinfo">getpeerinfo</a><ul>
+<li><a class="reference internal" href="#id61">Headers</a></li>
+<li><a class="reference internal" href="#id62">Parameters</a></li>
+<li><a class="reference internal" href="#id63">Example</a></li>
+<li><a class="reference internal" href="#id64">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#listbanned">listbanned</a><ul>
+<li><a class="reference internal" href="#id65">Headers</a></li>
+<li><a class="reference internal" href="#id66">Parameters</a></li>
+<li><a class="reference internal" href="#id67">Example</a></li>
+<li><a class="reference internal" href="#id68">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ping">ping</a><ul>
+<li><a class="reference internal" href="#id69">Headers</a></li>
+<li><a class="reference internal" href="#id70">Parameters</a></li>
+<li><a class="reference internal" href="#id71">Example</a></li>
+<li><a class="reference internal" href="#id72">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getutxobyaddress">getutxobyaddress</a><ul>
+<li><a class="reference internal" href="#id73">Headers</a></li>
+<li><a class="reference internal" href="#id74">Parameters</a></li>
+<li><a class="reference internal" href="#id75">Example</a></li>
+<li><a class="reference internal" href="#id76">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getbalancebyaddress">getbalancebyaddress</a><ul>
+<li><a class="reference internal" href="#id77">Headers</a></li>
+<li><a class="reference internal" href="#id78">Parameters</a></li>
+<li><a class="reference internal" href="#id79">Example</a></li>
+<li><a class="reference internal" href="#id80">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gettransactionbytxid">gettransactionbytxid</a><ul>
+<li><a class="reference internal" href="#id81">Headers</a></li>
+<li><a class="reference internal" href="#id82">Parameters</a></li>
+<li><a class="reference internal" href="#id83">Example</a></li>
+<li><a class="reference internal" href="#id84">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gettransactionbyaddress">gettransactionbyaddress</a><ul>
+<li><a class="reference internal" href="#id85">Headers</a></li>
+<li><a class="reference internal" href="#id86">Parameters</a></li>
+<li><a class="reference internal" href="#id87">Example</a></li>
+<li><a class="reference internal" href="#id88">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#createrawtransaction">createrawtransaction</a><ul>
+<li><a class="reference internal" href="#id89">Headers</a></li>
+<li><a class="reference internal" href="#id90">Parameters</a></li>
+<li><a class="reference internal" href="#id91">Example</a></li>
+<li><a class="reference internal" href="#id92">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sendrawtransaction">sendrawtransaction</a><ul>
+<li><a class="reference internal" href="#id93">Headers</a></li>
+<li><a class="reference internal" href="#id94">Parameters</a></li>
+<li><a class="reference internal" href="#id95">Example</a></li>
+<li><a class="reference internal" href="#id96">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting-started.html"
+                        title="previous chapter">Getting Started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ethereum.html"
+                        title="next chapter">Ethereum</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bitcoin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ethereum.html" title="Ethereum"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting-started.html" title="Getting Started"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Bitcoin</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Read the Docs.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+  </body>
+</html>

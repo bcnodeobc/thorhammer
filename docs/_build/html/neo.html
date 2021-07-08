@@ -1,0 +1,2008 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Neo &#8212; IntegrationHub V2 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Neo</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="neo">
+<h1>Neo<a class="headerlink" href="#neo" title="Permalink to this headline">¶</a></h1>
+<p>All RPC included are based on neo-cli.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to enter received token in headers using key ‘Authorization’.</p>
+</div>
+<hr class="docutils" />
+<section id="sendrawtransaction">
+<h2>sendrawtransaction<a class="headerlink" href="#sendrawtransaction" title="Permalink to this headline">¶</a></h2>
+<p>Broadcasts a transaction over the NEO network.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">sendrawtransaction</span>
+</pre></div>
+</div>
+<section id="headers">
+<h3>Headers<a class="headerlink" href="#headers" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hex</span>         <span class="n">A</span> <span class="n">hexadecimal</span> <span class="n">string</span> <span class="n">that</span> <span class="n">has</span> <span class="n">been</span> <span class="n">serialized</span><span class="p">,</span> <span class="n">after</span> <span class="n">the</span> <span class="n">signed</span> <span class="n">transaction</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">program</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/sendrawtransaction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;hex&quot;</span><span class="p">:</span><span class="s2">&quot;80000001195876cb34364dc38b730077156c6bc3a7fc570044a66fbfeeea56f71327e8ab0000029b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc500c65eaf440000000f9a23e06f74cf86b8827a9108ec2e0f89ad956c9b7cffdaa674beae0f930ebe6085af9093e5fe56b34a5c220ccdcf6efc336fc50092e14b5e00000030aab52ad93f6ce17ca07fa88fc191828c58cb71014140915467ecd359684b2dc358024ca750609591aa731a0b309c7fb3cab5cd0836ad3992aa0a24da431f43b68883ea5651d548feb6bd3c8e16376e6e426f91f84c58232103322f35c7819267e721335948d385fae5be66e7ba8c748ac15467dcca0693692dac&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="response">
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getaccountstate">
+<h2>getaccountstate<a class="headerlink" href="#getaccountstate" title="Permalink to this headline">¶</a></h2>
+<p>Queries global assets (NEO, GAS, and etc.) of the account, according to the account address.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getaccountstate</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Headers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>       <span class="n">A</span> <span class="mi">34</span><span class="o">-</span><span class="n">characters</span> <span class="n">length</span> <span class="n">string</span> <span class="n">beginning</span> <span class="k">with</span> <span class="n">A</span>
+              <span class="p">{</span>
+              <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz&quot;</span>
+              <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getaccountstate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;AJBENSwajTzQtwyJFkiJSv7MAaaMc7DsRz&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>Response<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;script_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0x1179716da2e9523d153a35fb3ad10c561b1e5b1a&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;frozen&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;votes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;balances&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getassetstate">
+<h2>getassetstate<a class="headerlink" href="#getassetstate" title="Permalink to this headline">¶</a></h2>
+<p>Queries the asset information, based on the specified asset number.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getassetstate</span>
+</pre></div>
+</div>
+<section id="id5">
+<h3>Headers<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">asset</span> <span class="nb">id</span>    <span class="n">Asset</span> <span class="n">ID</span> <span class="p">(</span><span class="n">asset</span> <span class="n">identifier</span><span class="p">),</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">transaction</span> <span class="n">ID</span> <span class="n">of</span> <span class="n">the</span> <span class="n">RegistTransaction</span> <span class="n">when</span> <span class="n">the</span> <span class="n">asset</span> <span class="ow">is</span> <span class="n">registered</span><span class="o">.</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;asset_id&quot;</span><span class="p">:</span> <span class="s2">&quot;c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Example<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getassetstate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;asset_id&quot;</span><span class="p">:</span><span class="s2">&quot;c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3>Response<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;0xc56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;GoverningToken&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;zh-CN&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;小蚁股&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;AntShare&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="s2">&quot;100000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="s2">&quot;100000000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;precision&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="s2">&quot;00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;admin&quot;</span><span class="p">:</span> <span class="s2">&quot;Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;issuer&quot;</span><span class="p">:</span> <span class="s2">&quot;Abf2qMs1pzQb8kYk9RuxtUb9jtRKJVuBJt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expiration&quot;</span><span class="p">:</span> <span class="mi">4000000</span><span class="p">,</span>
+    <span class="s2">&quot;frozen&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getbestblockhash">
+<h2>getbestblockhash<a class="headerlink" href="#getbestblockhash" title="Permalink to this headline">¶</a></h2>
+<p>Returns the hash of the tallest block in the main chain.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getbestblockhash</span>
+</pre></div>
+</div>
+<section id="id9">
+<h3>Headers<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3>Parameters<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id11">
+<h3>Example<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getbestblockhash&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3>Response<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;0xe8b139163776e5ac21336052e20b30933ff84f9cad9121a36f7d1447a058bba3&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockbyhash">
+<h2>getblockbyhash<a class="headerlink" href="#getblockbyhash" title="Permalink to this headline">¶</a></h2>
+<p>The corresponding block information is returned according to the specified hash value.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblockbyhash</span>
+</pre></div>
+</div>
+<section id="id13">
+<h3>Headers<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h3>Parameters<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hash</span>        <span class="n">Block</span> <span class="nb">hash</span> <span class="n">value</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">verbose</span> <span class="n">which</span> <span class="ow">is</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span>
+<span class="n">verbose</span>     <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id15">
+<h3>Example<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblockbyhash&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;hash&quot;</span><span class="p">:</span><span class="s2">&quot;773dd2dae4a9c9275290f89b56e67d7363ea4826dfd4fc13cc01cf73a44b0d0e&quot;</span><span class="p">,</span><span class="s2">&quot;verbose&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h3>Response<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;000000002deadfa82cbc4682f5800ec72a8d8bd6afa469af5b2de83a51d28795a893222816f8081bf1054136cca420f807f844a958b2dea482dfc99d2538ef9c77d13320f9263659d4220f00878f40bd841c552a59e75d652b5d3827bf04c165bbe9ef95cca4bf5501fd450140b514d8562ad3badac0e097a502a43c58e23c75029dad8ccdb3b1ce221067d73d5612950e38c7565d6b166ef62894399a6f152c38a1bdb8c7d3715f75f20c1c734053de02d5779551a692d8b50f3a30a81fcf88c8a06bd733b192cbbe42b21611903287fa00a7847e17b4b319331bd7c52407f40ac1a109b48d91da55aa8632e1db40e443f55108c5eefd99f954e06b21e97a4f0cf64dbd4e52426c27f7046cd880d6a7b1a507131c39afa48b9cac16411d6f84ec2f0b5d9977e5f1e3ce760a127b31409b8a52714b37a3b0970a19b4fb2669d2aa41ea85e05e68dfb03a197d505282dd53846ca58b1457504c65759a9ceb8f84f5148dec71727e9c743e986092728174409dfcbda69cef1164936212e8e5d91965c8a976dc8dbcb5ea7d2f2d2f0105dadb902924559fede016a1f76a2c7ab0ff89a6446b0c19c88375906c8b9eccb61bc1f1552102486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a7021024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d2102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae010000878f40bd00000000&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockbyindex">
+<h2>getblockbyindex<a class="headerlink" href="#getblockbyindex" title="Permalink to this headline">¶</a></h2>
+<p>Returns the corresponding block information according to the specified index.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblockbyindex</span>
+</pre></div>
+</div>
+<section id="id17">
+<h3>Headers<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id18">
+<h3>Parameters<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span>       <span class="n">Block</span> <span class="n">index</span> <span class="p">(</span><span class="n">block</span> <span class="n">height</span><span class="p">)</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">verbose</span> <span class="n">which</span> <span class="ow">is</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span>
+<span class="n">verbose</span>     <span class="p">{</span>
+            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h3>Example<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblockbyindex&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;10000&quot;</span><span class="p">,</span><span class="s2">&quot;verbose&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h3>Response<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockcount">
+<h2>getblockcount<a class="headerlink" href="#getblockcount" title="Permalink to this headline">¶</a></h2>
+<p>Gets the number of blocks in the main chain.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblockcount</span>
+</pre></div>
+</div>
+<section id="id21">
+<h3>Headers<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id22">
+<h3>Parameters<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id23">
+<h3>Example<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblockcount&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id24">
+<h3>Response<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">6332829</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockhash">
+<h2>getblockhash<a class="headerlink" href="#getblockhash" title="Permalink to this headline">¶</a></h2>
+<p>Returns the hash value of the corresponding block, based on the specified index.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblockhash</span>
+</pre></div>
+</div>
+<section id="id25">
+<h3>Headers<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h3>Parameters<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span>       <span class="n">Block</span> <span class="n">index</span> <span class="p">(</span><span class="n">block</span> <span class="n">height</span><span class="p">)</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;10000&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id27">
+<h3>Example<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblockhash&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;10000&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id28">
+<h3>Response<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;0x4c1e879872344349067c3b1a30781eeb4f9040d3795db7922f513f6f9660b9b2&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblockheader">
+<h2>getblockheader<a class="headerlink" href="#getblockheader" title="Permalink to this headline">¶</a></h2>
+<p>Returns the corresponding block header information according to the specified script hash.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblockheader</span>
+</pre></div>
+</div>
+<section id="id29">
+<h3>Headers<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id30">
+<h3>Parameters<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">hash</span>        <span class="n">The</span> <span class="n">block</span> <span class="n">script</span> <span class="nb">hash</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">verbose</span> <span class="n">which</span> <span class="ow">is</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span>
+<span class="n">verbose</span>     <span class="p">{</span>
+            <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id31">
+<h3>Example<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblockheader&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;hash&quot;</span><span class="p">:</span><span class="s2">&quot;a5508c9b6ed0fc09a531a62bc0b3efcb6b8a9250abaf72ab8e9591294c1f6957&quot;</span><span class="p">,</span><span class="s2">&quot;verbose&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id32">
+<h3>Response<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000e5abdddd1bb06ac4530a0cb699a99453fc64086708659cac9a8258061ab533698e6a6e91a592649a7fb0af5afa4d899d871819994fd260dc6b50c1be2badff0974486c5b40ac27006d80cbea5b752a7683f5011bdaaccee8c4d2555c829fa51e31551ef201fd45014047c4915575949baa8594877105598df8f06875539aa98e2b028ebf5b4f17122831d32308142062db8b50e1bbe07d2313510c0ae289e7f9a97b20cbe858e62ba2407187c52864ececa40ad3c76f221c7ef9918b9e2dd058156021a88737ca0a54722482297c9775af35d52cd4e01648a34662748d00f5b3c63ac2ae346b6bebf236401f23118e86ce3a74ae1bd92c41675f7f8dc94a6ceb2796a2a3741d248f0d5f07aaeda7ec47287317926382d921a47a38bb5793ebef91cbff7a04313d91a4d3ea403aecb64ecde98fc705dd4e9e26580fbeaf27bd24b69507b1b7d348ec29f7bc09948d237d7ca6fb3b253b59297bdc7fe10d1132fef3ac0d728e5063baebbc99cd4053871e5b4138d5b3dfcf79264d240b389417213517ad1fff9636d067a32d288b660503695c4341ce0799d0d9b1e78a62322f10eef1f44f3dd9ec4d311381a3daf15521024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d21025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b642102aaec38470f6aad0042c6e877cfd8087d2676b0f516fddd362801b9bd3936399e2103b209fd4f53a7170ea4444e0cb0a6bb6a53c2bd016926989cf85f9b0fba17a70c2103b8d9d5771d8f513aa0869b9cc8d50986403b78c6da36890638c3d46a5adce04a2102ca0e27697b9c248f6f16e085fd0061e26f44da85b58ee835c110caa5ec3ba5542102df48f60e8f3e01c48ff40b9b7f1310d7a8b2a193188befe1c2e3df740e89509357ae00&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getblocksysfee">
+<h2>getblocksysfee<a class="headerlink" href="#getblocksysfee" title="Permalink to this headline">¶</a></h2>
+<p>Returns the system fees of the block, based on the specified index.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getblocksysfee</span>
+</pre></div>
+</div>
+<section id="id33">
+<h3>Headers<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id34">
+<h3>Parameters<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span>       <span class="n">Block</span> <span class="n">index</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;1005434&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id35">
+<h3>Example<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getblocksysfee&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="s2">&quot;1005434&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id36">
+<h3>Response<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;195500&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getnep5balances">
+<h2>getnep5balances<a class="headerlink" href="#getnep5balances" title="Permalink to this headline">¶</a></h2>
+<p>Returns the balance of all NEP-5 assets in the specified address.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getnep5balances</span>
+</pre></div>
+</div>
+<section id="id37">
+<h3>Headers<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id38">
+<h3>Parameters<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>     <span class="n">The</span> <span class="n">address</span> <span class="n">that</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">query</span> <span class="n">balance</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;1aada0032aba1ef6d1f07bbd8bec1d85f5380fb3&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id39">
+<h3>Example<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getnep5balances&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;1aada0032aba1ef6d1f07bbd8bec1d85f5380fb3&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id40">
+<h3>Response<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;balance&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0001</span><span class="p">],</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AY6eqWjsUFCzsVELG7yG72XDukKvC34p2w&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getnep5transfers">
+<h2>getnep5transfers<a class="headerlink" href="#getnep5transfers" title="Permalink to this headline">¶</a></h2>
+<p>Returns all the NEP-5 transaction information occurred in the specified address.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getnep5transfers</span>
+</pre></div>
+</div>
+<section id="id41">
+<h3>Headers<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id42">
+<h3>Parameters<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>                 <span class="n">The</span> <span class="n">address</span> <span class="n">to</span> <span class="n">query</span> <span class="n">the</span> <span class="n">transaction</span> <span class="n">information</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">start</span> <span class="ow">and</span> <span class="n">end</span> <span class="n">timestamps</span> <span class="n">are</span> <span class="n">specified</span>
+<span class="n">timestamps</span> <span class="n">Start</span>        <span class="p">{</span>
+<span class="n">timestamps</span> <span class="n">End</span>          <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AbHgdBaWEnHkCiLtDZXjhvhaAK2cwFh5pF&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;timestampsStart&quot;</span><span class="p">:</span> <span class="s2">&quot;1553105830&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;timestampsEnd&quot;</span><span class="p">:</span> <span class="s2">&quot;1557305830&quot;</span>
+                        <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id43">
+<h3>Example<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getnep5transfers&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;AbHgdBaWEnHkCiLtDZXjhvhaAK2cwFh5pF&quot;</span><span class="p">,</span><span class="s2">&quot;timestampsStart&quot;</span><span class="p">:</span><span class="s2">&quot;1553105830&quot;</span><span class="p">,</span><span class="s2">&quot;timestampsEnd&quot;</span><span class="p">:</span><span class="s2">&quot;1557305830&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id44">
+<h3>Response<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;sent&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;received&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AbHgdBaWEnHkCiLtDZXjhvhaAK2cwFh5pF&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getcontractstate">
+<h2>getcontractstate<a class="headerlink" href="#getcontractstate" title="Permalink to this headline">¶</a></h2>
+<p>Queries contract information, according to the contract script hash.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getcontractstate</span>
+</pre></div>
+</div>
+<section id="id45">
+<h3>Headers<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id46">
+<h3>Parameters<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span> <span class="nb">hash</span>      <span class="n">Contract</span> <span class="n">script</span> <span class="nb">hash</span>
+                <span class="p">{</span>
+                <span class="s2">&quot;script_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f&quot;</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id47">
+<h3>Example<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getcontractstate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;script_hash&quot;</span><span class="p">:</span><span class="s2">&quot;dc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id48">
+<h3>Response<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;0xdc675afc61a7c0f7b3d2682bf6e1d8ed865a0e5f&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;5fc56b6c766b00527ac46c766b51527ac46107576f6f6c6f6e676c766b52527ac403574e476c766b53527ac4006c766b54527ac4210354ae498221046c666efebbaee9bd0eb4823469c98e748494a92a71f346b1a6616c766b55527ac46c766b00c3066465706c6f79876c766b56527ac46c766b56c36416006c766b55c36165f2026c766b57527ac462d8016c766b55c36165d801616c766b00c30b746f74616c537570706c79876c766b58527ac46c766b58c36440006168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746c766b57527ac46270016c766b00c3046e616d65876c766b59527ac46c766b59c36412006c766b52c36c766b57527ac46247016c766b00c30673796d626f6c876c766b5a527ac46c766b5ac36412006c766b53c36c766b57527ac4621c016c766b00c308646563696d616c73876c766b5b527ac46c766b5bc36412006c766b54c36c766b57527ac462ef006c766b00c30962616c616e63654f66876c766b5c527ac46c766b5cc36440006168164e656f2e53746f726167652e476574436f6e746578746c766b51c351c3617c680f4e656f2e53746f726167652e4765746c766b57527ac46293006c766b51c300c36168184e656f2e52756e74696d652e436865636b5769746e657373009c6c766b5d527ac46c766b5dc3640e00006c766b57527ac46255006c766b00c3087472616e73666572876c766b5e527ac46c766b5ec3642c006c766b51c300c36c766b51c351c36c766b51c352c36165d40361527265c9016c766b57527ac4620e00006c766b57527ac46203006c766b57c3616c756653c56b6c766b00527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746165700351936c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361651103615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c79617c680f4e656f2e53746f726167652e4765746165f40251936c766b52527ac46168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b52c361659302615272680f4e656f2e53746f726167652e50757461616c756653c56b6c766b00527ac461516c766b51527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b51c361654002615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e7465787406737570706c796c766b51c361650202615272680f4e656f2e53746f726167652e50757461516c766b52527ac46203006c766b52c3616c756659c56b6c766b00527ac46c766b51527ac46c766b52527ac4616168164e656f2e53746f726167652e476574436f6e746578746c766b00c3617c680f4e656f2e53746f726167652e4765746c766b53527ac46168164e656f2e53746f726167652e476574436f6e746578746c766b51c3617c680f4e656f2e53746f726167652e4765746c766b54527ac46c766b53c3616576016c766b52c3946c766b55527ac46c766b54c3616560016c766b52c3936c766b56527ac46c766b55c300a2640d006c766b52c300a2620400006c766b57527ac46c766b57c364ec00616168164e656f2e53746f726167652e476574436f6e746578746c766b00c36c766b55c36165d800615272680f4e656f2e53746f726167652e507574616168164e656f2e53746f726167652e476574436f6e746578746c766b51c36c766b56c361659c00615272680f4e656f2e53746f726167652e5075746155c57600135472616e73666572205375636365737366756cc476516c766b00c3c476526c766b51c3c476536c766b52c3c476546168184e656f2e426c6f636b636861696e2e476574486569676874c46168124e656f2e52756e74696d652e4e6f7469667961516c766b58527ac4620e00006c766b58527ac46203006c766b58c3616c756653c56b6c766b00527ac4616c766b00c36c766b51527ac46c766b51c36c766b52527ac46203006c766b52c3616c756653c56b6c766b00527ac461516c766b00c36a527a527ac46c766b51c36c766b52527ac46203006c766b52c3616c7566&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ByteArray&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;returntype&quot;</span><span class="p">:</span> <span class="s2">&quot;ByteArray&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Woolong&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;code_version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.9.2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;lllwvlvwlll&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;lllwvlvwlll@gmail.com&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;GO NEO!!!&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;storage&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s2">&quot;dynamic_invoke&quot;</span><span class="p">:</span> <span class="n">false</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="invokefunction">
+<h2>invokefunction<a class="headerlink" href="#invokefunction" title="Permalink to this headline">¶</a></h2>
+<p>Returns the result after calling a smart contract at scripthash with the given operation and parameters.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">invokefunction</span>
+</pre></div>
+</div>
+<section id="id49">
+<h3>Headers<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id50">
+<h3>Parameters<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span> <span class="nb">hash</span>         <span class="n">Smart</span> <span class="n">contract</span> <span class="n">scripthash</span> <span class="ow">and</span> <span class="n">operation</span> <span class="n">name</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="k">with</span> <span class="n">parameters</span> <span class="n">to</span> <span class="n">be</span> <span class="n">passed</span> <span class="n">into</span> <span class="n">the</span> <span class="n">smart</span> <span class="n">contract</span> <span class="n">operation</span>
+<span class="n">operation</span>           <span class="p">{</span>
+<span class="n">params</span>              <span class="s2">&quot;script_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;af7c7328eee5a275a3bcaee2bf0cf662b5e739be&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;operation&quot;</span><span class="p">:</span> <span class="s2">&quot;balanceOf&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="s2">&quot;91b83e96f2a7c4fdf0c1688441ec61986c7cae26&quot;</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id51">
+<h3>Example<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/invokefunction&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;script_hash&quot;</span><span class="p">:</span><span class="s2">&quot;af7c7328eee5a275a3bcaee2bf0cf662b5e739be&quot;</span><span class="p">,</span><span class="s2">&quot;operation&quot;</span><span class="p">:</span><span class="s2">&quot;balanceOf&quot;</span><span class="p">,</span><span class="s2">&quot;params&quot;</span><span class="p">:</span><span class="s2">&quot;91b83e96f2a7c4fdf0c1688441ec61986c7cae26&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id52">
+<h3>Response<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;1426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f6667be39e7b562f60cbfe2aebca375a2e5ee28737caf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;HALT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gas_consumed&quot;</span><span class="p">:</span> <span class="s2">&quot;0.311&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stack&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ByteArray&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;262bec084432&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="s2">&quot;d101361426ae7c6c9861ec418468c1f0fdc4a7f2963eb89151c10962616c616e63654f6667be39e7b562f60cbfe2aebca375a2e5ee28737caf000000000000000000000000&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getconnectioncount">
+<h2>getconnectioncount<a class="headerlink" href="#getconnectioncount" title="Permalink to this headline">¶</a></h2>
+<p>Gets the current number of connections for the node.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getconnectioncount</span>
+</pre></div>
+</div>
+<section id="id53">
+<h3>Headers<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id54">
+<h3>Parameters<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id55">
+<h3>Example<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getconnectioncount&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id56">
+<h3>Response<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getmetricblocktimestamp">
+<h2>getmetricblocktimestamp<a class="headerlink" href="#getmetricblocktimestamp" title="Permalink to this headline">¶</a></h2>
+<p>Returns timestamps of the specified block and its previous n blocks.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getmetricblocktimestamp</span>
+</pre></div>
+</div>
+<section id="id57">
+<h3>Headers<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id58">
+<h3>Parameters<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blocks</span> <span class="n">number</span>       <span class="n">Set</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">blocks</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">query</span> <span class="n">forward</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">the</span> <span class="n">block</span> <span class="n">height</span> <span class="n">your</span> <span class="n">query</span> <span class="n">ends</span>
+<span class="n">end</span> <span class="n">height</span>          <span class="p">{</span>
+                    <span class="s2">&quot;blocksNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;endHeight&quot;</span><span class="p">:</span> <span class="s2">&quot;460000&quot;</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id59">
+<h3>Example<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getmetricblocktimestamp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;blocksNumber&quot;</span><span class="p">:</span><span class="s2">&quot;10&quot;</span><span class="p">,</span><span class="s2">&quot;endHeight&quot;</span><span class="p">:</span><span class="s2">&quot;460000&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id60">
+<h3>Response<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138776</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459990</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138791</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459991</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138822</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459992</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138839</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459993</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138854</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459994</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138869</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459995</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138902</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459996</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138917</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459997</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138932</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459998</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138947</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">459999</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="mi">1556138981</span><span class="p">,</span>
+        <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">460000</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getpeers">
+<h2>getpeers<a class="headerlink" href="#getpeers" title="Permalink to this headline">¶</a></h2>
+<p>Gets the list of nodes that the node is currently connected/disconnected from.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getpeers</span>
+</pre></div>
+</div>
+<section id="id61">
+<h3>Headers<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id62">
+<h3>Parameters<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id63">
+<h3>Example<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getpeers&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id64">
+<h3>Response<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;unconnected&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;54.65.179.69&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;18.140.231.98&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;142.0.199.100&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;46.4.15.97&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">20037</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;bad&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;connected&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;183.129.226.75&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;13.89.56.95&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;8.210.66.154&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10333</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getstorage">
+<h2>getstorage<a class="headerlink" href="#getstorage" title="Permalink to this headline">¶</a></h2>
+<p>Returns the stored value, according to the contract script hash and the stored key.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getstorage</span>
+</pre></div>
+</div>
+<section id="id65">
+<h3>Headers<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id66">
+<h3>Parameters<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span> <span class="nb">hash</span>         <span class="n">Contract</span> <span class="n">script</span> <span class="nb">hash</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">key</span> <span class="n">to</span> <span class="n">look</span> <span class="n">up</span> <span class="ow">in</span> <span class="n">storage</span> <span class="p">(</span><span class="ow">in</span> <span class="nb">hex</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">key</span>                 <span class="p">{</span>
+                    <span class="s2">&quot;script_hash&quot;</span><span class="p">:</span> <span class="s2">&quot;03febccf81ac85e3d795bc5cbd4e84e907812aa3&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;5065746572&quot;</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id67">
+<h3>Example<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getstorage&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;script_hash&quot;</span><span class="p">:</span><span class="s2">&quot;03febccf81ac85e3d795bc5cbd4e84e907812aa3&quot;</span><span class="p">,</span><span class="s2">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;5065746572&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id68">
+<h3>Response<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;4c696e&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="gettransactionheight">
+<h2>gettransactionheight<a class="headerlink" href="#gettransactionheight" title="Permalink to this headline">¶</a></h2>
+<p>Returns the block index in which the transaction is found.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">gettransactionheight</span>
+</pre></div>
+</div>
+<section id="id69">
+<h3>Headers<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id70">
+<h3>Parameters<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transaction</span> <span class="nb">id</span>      <span class="n">Transaction</span> <span class="n">ID</span>
+                    <span class="p">{</span>
+                    <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;9ae1fd32d525eff2a1bb1fc8d0cd2cfb4cc97a06a232bb87fc58e4fe3bc2a845&quot;</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id71">
+<h3>Example<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/gettransactionheight&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;txid&quot;</span><span class="p">:</span><span class="s2">&quot;9ae1fd32d525eff2a1bb1fc8d0cd2cfb4cc97a06a232bb87fc58e4fe3bc2a845&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id72">
+<h3>Response<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="mi">251488</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="gettxout">
+<h2>gettxout<a class="headerlink" href="#gettxout" title="Permalink to this headline">¶</a></h2>
+<p>Returns the corresponding unspent transaction output information (returned change), based on the specified hash and index. If the transaction output is already spent, the result value will be null.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">gettxout</span>
+</pre></div>
+</div>
+<section id="id73">
+<h3>Headers<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id74">
+<h3>Parameters<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transaction</span> <span class="nb">id</span>       <span class="n">Transaction</span> <span class="n">ID</span>
+                    <span class="p">{</span>
+                    <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657&quot;</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id75">
+<h3>Example<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/gettxout&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;txid&quot;</span><span class="p">:</span><span class="s2">&quot;f4250dab094c38d8265acc15c366dc508d2e14bf5699e12d9df26577ed74d657&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id76">
+<h3>Response<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;Asset&quot;</span><span class="p">:</span> <span class="s2">&quot;c56f33fc6ecfcd0c225c4ab356fee59390af8560be0e930faebe74a6daff7c9b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Value&quot;</span><span class="p">:</span> <span class="s2">&quot;2950&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Address&quot;</span><span class="p">:</span> <span class="s2">&quot;AHCNSDkh2Xs66SzmyKGdoDKY752uyeXDrt&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getvalidators">
+<h2>getvalidators<a class="headerlink" href="#getvalidators" title="Permalink to this headline">¶</a></h2>
+<p>Returns the current NEO consensus nodes information and voting status.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getvalidators</span>
+</pre></div>
+</div>
+<section id="id77">
+<h3>Headers<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id78">
+<h3>Parameters<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id79">
+<h3>Example<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getvalidators&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id80">
+<h3>Response<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;publickey&quot;</span><span class="p">:</span> <span class="s2">&quot;02486fd15702c4490a26703112a5cc1d0923fd697a33406bd5a1c00e0013b09a70&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;votes&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;publickey&quot;</span><span class="p">:</span> <span class="s2">&quot;024c7b7fb6c310fccf1ba33b082519d82964ea93868d676662d4a59ad548df0e7d&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;votes&quot;</span><span class="p">:</span> <span class="s2">&quot;37927248&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;publickey&quot;</span><span class="p">:</span> <span class="s2">&quot;025bdf3f181f53e9696227843950deb72dcd374ded17c057159513c3d0abe20b64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;votes&quot;</span><span class="p">:</span> <span class="s2">&quot;37927248&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getversion">
+<h2>getversion<a class="headerlink" href="#getversion" title="Permalink to this headline">¶</a></h2>
+<p>Returns the version information about the queried node.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getversion</span>
+</pre></div>
+</div>
+<section id="id81">
+<h3>Headers<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id82">
+<h3>Parameters<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h3>
+<p>No need parameters:</p>
+</section>
+<section id="id83">
+<h3>Example<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getversion&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id84">
+<h3>Response<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">10323</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="p">:</span> <span class="mi">574345106</span><span class="p">,</span>
+    <span class="s2">&quot;useragent&quot;</span><span class="p">:</span> <span class="s2">&quot;/Neo:2.10.3/&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="invokescript">
+<h2>invokescript<a class="headerlink" href="#invokescript" title="Permalink to this headline">¶</a></h2>
+<p>Returns the result after passing a script through the VM.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">invokescript</span>
+</pre></div>
+</div>
+<section id="id85">
+<h3>Headers<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id86">
+<h3>Parameters<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">script</span>      <span class="n">A</span> <span class="n">script</span> <span class="n">runnable</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">same</span> <span class="n">script</span> <span class="n">that</span> <span class="ow">is</span> <span class="n">carried</span> <span class="ow">in</span> <span class="n">InvocationTransaction</span>
+            <span class="p">{</span>
+            <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;00046e616d656724058e5e1b6008847cd662728549088a9ee82191&quot;</span>
+            <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id87">
+<h3>Example<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/invokescript&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;script&quot;</span><span class="p">:</span><span class="s2">&quot;00046e616d656724058e5e1b6008847cd662728549088a9ee82191&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id88">
+<h3>Response<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;00046e616d656724058e5e1b6008847cd662728549088a9ee82191&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;HALT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gas_consumed&quot;</span><span class="p">:</span> <span class="s2">&quot;0.161&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stack&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;ByteArray&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;4e45503520474153&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;tx&quot;</span><span class="p">:</span> <span class="s2">&quot;d1011b00046e616d656724058e5e1b6008847cd662728549088a9ee82191000000000000000000000000&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="validateaddress">
+<h2>validateaddress<a class="headerlink" href="#validateaddress" title="Permalink to this headline">¶</a></h2>
+<p>Verifies that the address is a correct NEO address.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">validateaddress</span>
+</pre></div>
+</div>
+<section id="id89">
+<h3>Headers<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id90">
+<h3>Parameters<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">address</span>         <span class="n">Address</span>
+                <span class="p">{</span>
+                <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i&quot;</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id91">
+<h3>Example<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/validateaddress&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span><span class="s2">&quot;address&quot;</span><span class="p">:</span><span class="s2">&quot;AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i&quot;</span><span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id92">
+<h3>Response<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;AQVh2pG732YvtNaxEGkQUei3YA4cvo7d2i&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isvalid&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="sendnep5">
+<h2>sendNEP5<a class="headerlink" href="#sendnep5" title="Permalink to this headline">¶</a></h2>
+<p>Send NEP5 token.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">sendNEP5</span>
+</pre></div>
+</div>
+<section id="id93">
+<h3>Headers<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id94">
+<h3>Parameters<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Address</span>         <span class="n">JSON</span> <span class="n">body</span>
+                <span class="p">{</span>
+                <span class="s2">&quot;contractAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;40bb36a54bf28872b6ffdfa7fbc6480900e58448&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;toAddr&quot;</span><span class="p">:</span> <span class="s2">&quot;AaVWP6CvxqRjz6Ws491HdV3yzAjLP36nms&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+                <span class="s2">&quot;privateKey&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&lt;Private Key Wallet&gt;&gt;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fee&quot;</span><span class="p">:</span> <span class="mi">0</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id95">
+<h3>Example<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/sendNEP5&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span>
+<span class="s2">&quot;contractAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;40bb36a54bf28872b6ffdfa7fbc6480900e58448&quot;</span><span class="p">,</span>
+<span class="s2">&quot;toAddr&quot;</span><span class="p">:</span> <span class="s2">&quot;AaVWP6CvxqRjz6Ws491HdV3yzAjLP36nms&quot;</span><span class="p">,</span>
+<span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>
+<span class="s2">&quot;privateKey&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&lt;Private Key Wallet&gt;&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;fee&quot;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id96">
+<h3>Response<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;flag&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;jsonrpc&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+        <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;txid&quot;</span><span class="p">:</span> <span class="s2">&quot;c3cf688484b4dba6833ca69db0682210e25bf31d91139a072eba31a5bf93965c&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="getnep5balance">
+<h2>getNEP5Balance<a class="headerlink" href="#getnep5balance" title="Permalink to this headline">¶</a></h2>
+<p>Get NEP5 balances using high level library.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">integrationhub</span><span class="o">.</span><span class="n">okwave</span><span class="o">.</span><span class="k">global</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">neomainnet</span><span class="o">/</span><span class="n">getNEP5Balance</span>
+</pre></div>
+</div>
+<section id="id97">
+<h3>Headers<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h3>
+<p>Need to set headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Key</span>             <span class="n">Value</span>
+
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span>    <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="n">Authorization</span>   <span class="n">OBC</span> <span class="n">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</span><span class="o">.</span><span class="n">eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9</span><span class="mf">.71</span><span class="n">my1T</span><span class="o">-</span><span class="mi">2</span><span class="n">IxQNJhNNu</span><span class="o">-</span><span class="n">aRX7N3TLo9BqAczyGWX1ph2vA</span>
+</pre></div>
+</div>
+</section>
+<section id="id98">
+<h3>Parameters<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h3>
+<p>Need parameters:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Address</span>         <span class="n">JSON</span> <span class="n">Body</span>
+                <span class="p">{</span>
+                <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="n">AcyBxBPokv4Vu7eQXoeKLMaonZK9vzX8g5</span><span class="p">,</span>
+                <span class="s2">&quot;contractAddress&quot;</span><span class="p">:</span> <span class="mi">883</span><span class="n">ec9d1950b21f340cc195562c27b2ac0c94dd3</span>
+                <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id99">
+<h3>Example<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;request&#39;</span><span class="p">);</span>
+<span class="n">var</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://integrationhub.okwave.global/api/v2/neomainnet/getNEP5Balance&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;headers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;OBC eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoib2JjIiwiaWF0IjoxNjAzMTU3NjMzLCJleHAiOjE2MDM3NjI0MzN9.71my1T-2IxQNJhNNu-aRX7N3TLo9BqAczyGWX1ph2vA&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">},</span>
+<span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span>
+<span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="n">AcyBxBPokv4Vu7eQXoeKLMaonZK9vzX8g5</span><span class="p">,</span>
+<span class="s2">&quot;contractAddress&quot;</span><span class="p">:</span> <span class="mi">883</span><span class="n">ec9d1950b21f340cc195562c27b2ac0c94dd3</span>
+<span class="p">})</span>
+<span class="p">};</span>
+<span class="n">request</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="id100">
+<h3>Response<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h3>
+<p>Results:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Neo</a><ul>
+<li><a class="reference internal" href="#sendrawtransaction">sendrawtransaction</a><ul>
+<li><a class="reference internal" href="#headers">Headers</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#response">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getaccountstate">getaccountstate</a><ul>
+<li><a class="reference internal" href="#id1">Headers</a></li>
+<li><a class="reference internal" href="#id2">Parameters</a></li>
+<li><a class="reference internal" href="#id3">Example</a></li>
+<li><a class="reference internal" href="#id4">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getassetstate">getassetstate</a><ul>
+<li><a class="reference internal" href="#id5">Headers</a></li>
+<li><a class="reference internal" href="#id6">Parameters</a></li>
+<li><a class="reference internal" href="#id7">Example</a></li>
+<li><a class="reference internal" href="#id8">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getbestblockhash">getbestblockhash</a><ul>
+<li><a class="reference internal" href="#id9">Headers</a></li>
+<li><a class="reference internal" href="#id10">Parameters</a></li>
+<li><a class="reference internal" href="#id11">Example</a></li>
+<li><a class="reference internal" href="#id12">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockbyhash">getblockbyhash</a><ul>
+<li><a class="reference internal" href="#id13">Headers</a></li>
+<li><a class="reference internal" href="#id14">Parameters</a></li>
+<li><a class="reference internal" href="#id15">Example</a></li>
+<li><a class="reference internal" href="#id16">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockbyindex">getblockbyindex</a><ul>
+<li><a class="reference internal" href="#id17">Headers</a></li>
+<li><a class="reference internal" href="#id18">Parameters</a></li>
+<li><a class="reference internal" href="#id19">Example</a></li>
+<li><a class="reference internal" href="#id20">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockcount">getblockcount</a><ul>
+<li><a class="reference internal" href="#id21">Headers</a></li>
+<li><a class="reference internal" href="#id22">Parameters</a></li>
+<li><a class="reference internal" href="#id23">Example</a></li>
+<li><a class="reference internal" href="#id24">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockhash">getblockhash</a><ul>
+<li><a class="reference internal" href="#id25">Headers</a></li>
+<li><a class="reference internal" href="#id26">Parameters</a></li>
+<li><a class="reference internal" href="#id27">Example</a></li>
+<li><a class="reference internal" href="#id28">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblockheader">getblockheader</a><ul>
+<li><a class="reference internal" href="#id29">Headers</a></li>
+<li><a class="reference internal" href="#id30">Parameters</a></li>
+<li><a class="reference internal" href="#id31">Example</a></li>
+<li><a class="reference internal" href="#id32">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getblocksysfee">getblocksysfee</a><ul>
+<li><a class="reference internal" href="#id33">Headers</a></li>
+<li><a class="reference internal" href="#id34">Parameters</a></li>
+<li><a class="reference internal" href="#id35">Example</a></li>
+<li><a class="reference internal" href="#id36">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getnep5balances">getnep5balances</a><ul>
+<li><a class="reference internal" href="#id37">Headers</a></li>
+<li><a class="reference internal" href="#id38">Parameters</a></li>
+<li><a class="reference internal" href="#id39">Example</a></li>
+<li><a class="reference internal" href="#id40">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getnep5transfers">getnep5transfers</a><ul>
+<li><a class="reference internal" href="#id41">Headers</a></li>
+<li><a class="reference internal" href="#id42">Parameters</a></li>
+<li><a class="reference internal" href="#id43">Example</a></li>
+<li><a class="reference internal" href="#id44">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getcontractstate">getcontractstate</a><ul>
+<li><a class="reference internal" href="#id45">Headers</a></li>
+<li><a class="reference internal" href="#id46">Parameters</a></li>
+<li><a class="reference internal" href="#id47">Example</a></li>
+<li><a class="reference internal" href="#id48">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#invokefunction">invokefunction</a><ul>
+<li><a class="reference internal" href="#id49">Headers</a></li>
+<li><a class="reference internal" href="#id50">Parameters</a></li>
+<li><a class="reference internal" href="#id51">Example</a></li>
+<li><a class="reference internal" href="#id52">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getconnectioncount">getconnectioncount</a><ul>
+<li><a class="reference internal" href="#id53">Headers</a></li>
+<li><a class="reference internal" href="#id54">Parameters</a></li>
+<li><a class="reference internal" href="#id55">Example</a></li>
+<li><a class="reference internal" href="#id56">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getmetricblocktimestamp">getmetricblocktimestamp</a><ul>
+<li><a class="reference internal" href="#id57">Headers</a></li>
+<li><a class="reference internal" href="#id58">Parameters</a></li>
+<li><a class="reference internal" href="#id59">Example</a></li>
+<li><a class="reference internal" href="#id60">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getpeers">getpeers</a><ul>
+<li><a class="reference internal" href="#id61">Headers</a></li>
+<li><a class="reference internal" href="#id62">Parameters</a></li>
+<li><a class="reference internal" href="#id63">Example</a></li>
+<li><a class="reference internal" href="#id64">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getstorage">getstorage</a><ul>
+<li><a class="reference internal" href="#id65">Headers</a></li>
+<li><a class="reference internal" href="#id66">Parameters</a></li>
+<li><a class="reference internal" href="#id67">Example</a></li>
+<li><a class="reference internal" href="#id68">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gettransactionheight">gettransactionheight</a><ul>
+<li><a class="reference internal" href="#id69">Headers</a></li>
+<li><a class="reference internal" href="#id70">Parameters</a></li>
+<li><a class="reference internal" href="#id71">Example</a></li>
+<li><a class="reference internal" href="#id72">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gettxout">gettxout</a><ul>
+<li><a class="reference internal" href="#id73">Headers</a></li>
+<li><a class="reference internal" href="#id74">Parameters</a></li>
+<li><a class="reference internal" href="#id75">Example</a></li>
+<li><a class="reference internal" href="#id76">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getvalidators">getvalidators</a><ul>
+<li><a class="reference internal" href="#id77">Headers</a></li>
+<li><a class="reference internal" href="#id78">Parameters</a></li>
+<li><a class="reference internal" href="#id79">Example</a></li>
+<li><a class="reference internal" href="#id80">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getversion">getversion</a><ul>
+<li><a class="reference internal" href="#id81">Headers</a></li>
+<li><a class="reference internal" href="#id82">Parameters</a></li>
+<li><a class="reference internal" href="#id83">Example</a></li>
+<li><a class="reference internal" href="#id84">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#invokescript">invokescript</a><ul>
+<li><a class="reference internal" href="#id85">Headers</a></li>
+<li><a class="reference internal" href="#id86">Parameters</a></li>
+<li><a class="reference internal" href="#id87">Example</a></li>
+<li><a class="reference internal" href="#id88">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#validateaddress">validateaddress</a><ul>
+<li><a class="reference internal" href="#id89">Headers</a></li>
+<li><a class="reference internal" href="#id90">Parameters</a></li>
+<li><a class="reference internal" href="#id91">Example</a></li>
+<li><a class="reference internal" href="#id92">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sendnep5">sendNEP5</a><ul>
+<li><a class="reference internal" href="#id93">Headers</a></li>
+<li><a class="reference internal" href="#id94">Parameters</a></li>
+<li><a class="reference internal" href="#id95">Example</a></li>
+<li><a class="reference internal" href="#id96">Response</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getnep5balance">getNEP5Balance</a><ul>
+<li><a class="reference internal" href="#id97">Headers</a></li>
+<li><a class="reference internal" href="#id98">Parameters</a></li>
+<li><a class="reference internal" href="#id99">Example</a></li>
+<li><a class="reference internal" href="#id100">Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/neo.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Neo</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Read the Docs.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+  </body>
+</html>

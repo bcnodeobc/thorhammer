@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting Started &#8212; IntegrationHub V2 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bitcoin" href="bitcoin.html" />
+    <link rel="prev" title="Welcome to Read the Docs Intergration Hub’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bitcoin.html" title="Bitcoin"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Read the Docs Intergration Hub’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Sign in into <a class="reference external" href="https://thankslogin.okbc.my/auth">https://thankslogin.okbc.my/auth</a> to receive token from Thanks Economy and <a class="reference external" href="https://integrationhub.okwave.global/api/v2/registerToken">https://integrationhub.okwave.global/api/v2/registerToken</a> to receive token for internal.</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImRpcUZ3QnVVVVFRWlZsNW96SUgtSmNIZTBiMkN6aDRUOGswNHNxTUlHekkifQ</span><span class="o">.</span><span class="n">eyJzdWIiOiJoaXNlbWFraXNlMzUxNEBnbWFpbC5jb20iLCJhdF9oYXNoIjoiSW5neVRGVW9nUHlFVWhnTGdta1BDZyIsImF1ZCI6IjRNcjViYTIyWnV5TjVWVlBMd0ZoZCIsImV4cCI6MTYwOTkwMTgwOCwiaWF0IjoxNjA5ODk4MjA4LCJpc3MiOiJodHRwczovL3RoYW5rc2F1dGgub2tiYy5teSJ9</span><span class="o">.</span><span class="n">PeIqWbM_HB40YirABFao</span><span class="o">-</span><span class="n">VFXBcSCebhcrB</span><span class="o">-</span><span class="n">zXI2qA4SvEl_aRWSOdKAfn</span><span class="o">-</span><span class="mi">5</span><span class="n">Z0H_QSIevKyiu8</span><span class="o">-</span><span class="n">_i2kBSS7</span><span class="o">-</span><span class="mi">4</span><span class="n">wVNTFYAE1PRse3d4XY91zWEi53qr7o2WdBVag1ZqKutkOIJmyOxMmT8Jbb2YNH5l9Fil05E7d030HPV</span><span class="o">-</span><span class="n">YTtKtRswsdDIGM3r2</span><span class="o">-</span><span class="mi">9</span><span class="n">drLDYYLjBoUccYTJsyB2EAFtAICNikmlXXgUQhwESm__keXVl8tkdGLrUvvyy_bUGSHMofYuL7jTXauiMB3F37L2p1gTDiUNPSX3zJeUgKpqUgS6jIVTK2vsv9WBfb1BO1bXCo_08vQElLOBM46SIaMFklcJlxQ</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Change header value under Authorization’s key with token value from previous step.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use ‘OBC &lt;token&gt;’ for internal token</p>
+</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Request API using <strong>POST</strong> method with url <a class="reference external" href="https://integrationhub.okwave.global/api/v2/">https://integrationhub.okwave.global/api/v2/</a> and body data</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;blockchain&quot;</span><span class="p">:</span> <span class="s2">&quot;BTC&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblockcount&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>version</strong> : Thorhammer’s version.</p></li>
+<li><p><strong>blockchain</strong> : Blockchain ( BTC/THORS/ETH ).</p></li>
+<li><p><strong>payload</strong> : Contains of requested function and body data.</p></li>
+<li><p><strong>method</strong> : Function API based on the node.</p></li>
+<li><p><strong>parameter</strong> : Body for function called.</p></li>
+<li><p><strong>webhook</strong> : Webhook API serve by user/developer to receive API response.</p></li>
+<li><p><strong>Id</strong> : Unique Id for identification for user/developer task.</p></li>
+</ol>
+</li>
+<li><p>User/developer will received ‘success’ message after request and the result will be sent to the webhook API mentioned</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;payload&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;getblockcount&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parameter&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;webhook&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">User</span> <span class="n">Webhook</span> <span class="n">API</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Unique</span> <span class="n">ID</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="mi">690086</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Aizu Zuyyin</p></li>
+<li><p>Mohamad Fazuan</p></li>
+<li><p>Shahrizal</p></li>
+<li><p>Ridzuan</p></li>
+<li><p>Hisham</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TEAM BLOCKCHAIN</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#authors">Authors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Read the Docs Intergration Hub’s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bitcoin.html"
+                        title="next chapter">Bitcoin</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting-started.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bitcoin.html" title="Bitcoin"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Read the Docs Intergration Hub’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">IntegrationHub V2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Getting Started</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Read the Docs.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+  </body>
+</html>
