@@ -1,8 +1,8 @@
 Getting Started
 ---------------
 
-Usage
-=====
+Authorization Token
+===================
 
 1. Sign in into https://thankslogin.okbc.my/auth to receive token from Thanks Economy and https://integrationhub.okwave.global/api/v2/registerToken to receive token for internal.
 
@@ -15,8 +15,8 @@ Example::
 .. note::  Use 'OBC <token>' for internal token
 
 
-Example
-=======
+Request API
+===========
 
 1. Request API using **POST** method with url https://integrationhub.okwave.global/api/v2/ and body data ::
 
