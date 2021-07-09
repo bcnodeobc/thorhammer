@@ -18,13 +18,16 @@ Example::
 Request API
 ===========
 
+---
+BTC
+---
+
 1. Request API using **POST** method with url https://integrationhub.okwave.global/api/v2/ and body data ::
 
     {
         "version": 2,
         "blockchain": "BTC",
-        "payload": 
-        {
+        "payload": {
             "method": "getblockcount",
             "parameter": {},
             "webhook": <User Webhook API>,
@@ -50,6 +53,51 @@ Request API
         "Id": <Unique ID>
         },
         "result": 690086
+    }
+
+
+--------
+ETHEREUM
+--------
+
+1. Request API using **POST** method with url https://integrationhub.okwave.global/api/v2/ and body data ::
+
+    {
+        "version": 2,
+        "blockchain": "ETH",
+        "payload": {
+            "class": "web3.eth",
+            "method": "getBalance",
+            "parameter": 
+            {
+
+            },
+            "webhook": <User Webhook API>,
+            "Id": <Unique ID>
+        }
+    } 
+
+   1. **version** : Thorhammer's version.
+   2. **blockchain** : Blockchain ( BTC/THORS/ETH ).
+   3. **payload** : Contains of requested function and body data.
+   4. **method** : Function API based on the node.
+   5. **parameter** : Body for function called.
+   6. **webhook** : Webhook API serve by user/developer to receive API response.
+   7. **Id** : Unique Id for identification for user/developer task.
+
+2. User/developer will received 'success' message after request and the result will be sent to the webhook API mentioned ::
+
+    {
+        "payload": {
+            "method": "getBalance",
+            "parameter":
+            {
+                "address": "0xceb21b8ce14e287a106bd01f5c92dac970c1efd3"
+            },
+            "webhook": <User Webhook API>,
+            "Id": <Unique ID>
+        },
+        "result": "0"
     }
 
 
