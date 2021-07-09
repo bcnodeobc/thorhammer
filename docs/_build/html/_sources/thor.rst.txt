@@ -1,6 +1,6 @@
-========
-Ethereum
-========
+==========
+Thorhammer
+==========
 
 All RPC included are based on web3. 
 
